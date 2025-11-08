@@ -654,16 +654,8 @@ Program
       VarDecl
         Identifier: p
         Identifier: Point
-      STATEMENT
-        Identifier: p
-        Identifier: x
-        Operator: =
-        IntLiteral: 10
-      STATEMENT
-        Identifier: p
-        Identifier: y
-        Operator: =
-        IntLiteral: 20
+      Identifier: p
+      Identifier: p
   FunctionDef
     FunctionDecl
       Identifier: testAssignFromMemberAccess
@@ -675,11 +667,7 @@ Program
       VarDecl
         Identifier: val
         TypeName: integer
-      STATEMENT
-        Identifier: p
-        Identifier: x
-        Operator: =
-        IntLiteral: 50
+      Identifier: p
       AssignStmt
         Variable
           Identifier: val

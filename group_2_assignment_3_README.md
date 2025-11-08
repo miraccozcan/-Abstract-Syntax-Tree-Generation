@@ -3,15 +3,15 @@
 
 **Group Number:** 2  
 **Group Members:**
-- [Member 1 Name] - [member1email@myseneca.ca]
-- [Member 2 Name] - [member2email@myseneca.ca]
-- [Member 3 Name] - [member3email@myseneca.ca]
-- [Member 4 Name] - [member4email@myseneca.ca]
+- Mirac Ozcan (mozkan1@myseneca.ca)
+- Sidhant Sharma (ssharma471@myseneca.ca)
+- Arvin (aarmand1@myseneca.ca)
+- Paschal (Pibeh@myseneca.ca)
 
 **Date Completed:** November 8, 2025
 
 **Authenticity Declaration:**
-I declare this submission is the result of our group work and has not been shared with any other groups/students or 3rd party content provider. This submitted piece of work is entirely of our own creation.
+We declare this submission is the result of our group work and has not been shared with any other groups/students or 3rd party content provider. This submitted piece of work is entirely of our own creation.
 
 ---
 
@@ -71,7 +71,7 @@ If a `Makefile` is provided:
 
 ```bash
 # Navigate to the assignment directory
-cd assign3
+cd Abstract-Syntax-Tree-Generation
 
 # Clean previous builds
 make clean
@@ -90,7 +90,7 @@ If compiling manually:
 
 ```bash
 # Navigate to the assignment directory
-cd assign3
+cd Abstract-Syntax-Tree-Generation
 
 # Compile all source files
 g++ -std=c++17 -Wall -Wextra -O2 \
@@ -112,7 +112,7 @@ g++ -std=c++17 -Wall -Wextra -O2 -g \
 
 ```bash
 # In Codespaces terminal
-cd assign3
+cd Abstract-Syntax-Tree-Generation
 
 # Use provided build script
 chmod +x build.sh
@@ -124,7 +124,7 @@ g++ -std=c++17 -Wall parserdriver.cpp ast.cpp ast_factory.cpp semantic_stack.cpp
 
 ### Successful Compilation
 
-You should see the executable `parser` (or `parser.exe` on Windows) created in the assign3 directory with no error messages.
+You should see the executable `parser` (or `parser.exe` on Windows) created in the Abstract-Syntax-Tree-Generation directory with no error messages.
 
 ---
 
@@ -195,7 +195,7 @@ Success message:
 ## File Structure
 
 ```
-assign3/
+Abstract-Syntax-Tree-Generation/
 ├── parser                          # Executable (generated after compilation)
 ├── parserdriver.cpp                # Main parser implementation (1957 lines)
 ├── ast.hpp                         # AST node class definitions
@@ -303,8 +303,8 @@ dot -Tpng example.dot -o example.png
 
 **Error: "No such file or directory"**
 ```bash
-# Make sure you're in the assign3 directory
-pwd  # Should show: .../assign3
+# Make sure you're in the Abstract-Syntax-Tree-Generation directory
+pwd  # Should show: .../Abstract-Syntax-Tree-Generation
 
 # Check that all source files exist
 ls -la *.cpp *.hpp include/
@@ -406,19 +406,4 @@ For detailed information about the implementation, refer to:
 
 ---
 
-## Contact Information
-
-For questions or issues regarding this submission:
-
-**Group 2**  
-[Member Names]  
-[member emails]  
-
-**Course:** SEP700  
-**Assignment:** Assignment 3 - AST Generation  
-**Due Date:** November 9, 2025
-
----
-
 **Last Updated:** November 8, 2025
-# -Abstract-Syntax-Tree-Generation

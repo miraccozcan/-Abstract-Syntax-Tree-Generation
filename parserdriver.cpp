@@ -1,4 +1,14 @@
-// parserdriver.cpp
+///////////////////////////////////////////////////////////////////////////
+// File Name: parserdriver.cpp
+// Group Number: 2
+// Group Members Names: Mirac Ozcan, Sidhant Sharma, Arvin, Paschal
+// Group Members Seneca Email: mozkan1@myseneca.ca, ssharma471@myseneca.ca, aarmand1@myseneca.ca, Pibeh@myseneca.ca
+// Date: November 8, 2025
+// Authenticity Declaration:
+// I declare this submission is the result of our group work and has not
+// been shared with any other groups/students or 3rd party content provider.
+///////////////////////////////////////////////////////////////////////////
+
 #include <algorithm>
 #include <cctype>
 #include <exception>
@@ -511,6 +521,8 @@ ASTNode::Ptr buildSemanticNode(const ActionFrame& frame, const vector<ChildValue
                 return ast::makeIf(cond, thenBlock, elseBlock);
             }
         }
+        // Fallback: return first child if no specific case matched
+        return childAt(children, 0);
     }
 
     // STATBLOCK — normalize block forms into Block node.

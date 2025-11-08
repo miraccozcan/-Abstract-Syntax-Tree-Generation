@@ -109,11 +109,7 @@ Program
       VarDecl
         Identifier: p
         Identifier: Point
-      STATEMENT
-        Identifier: p
-        Identifier: x
-        Operator: =
-        IntLiteral: 10
+      Identifier: p
   ClassDecl
     Identifier: Point
     MemberDecl

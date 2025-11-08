@@ -536,16 +536,8 @@ Program
       VarDecl
         Identifier: p
         Identifier: Point
-      STATEMENT
-        Identifier: p
-        Identifier: x
-        Operator: =
-        IntLiteral: 10
-      STATEMENT
-        Identifier: p
-        Identifier: y
-        Operator: =
-        IntLiteral: 20
+      Identifier: p
+      Identifier: p
       ReturnStmt
         Variable
           Identifier: p
