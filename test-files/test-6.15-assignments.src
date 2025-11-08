@@ -1,0 +1,282 @@
+/* Test 6.15: Assignment statements - All variations */
+
+function testSimpleAssignment() => void
+{
+  localvar x : integer;
+  x = 10;
+}
+
+function testMultipleAssignments() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  
+  a = 1;
+  b = 2;
+  c = 3;
+}
+
+function testAssignmentChain() => void
+{
+  localvar x : integer;
+  x = 1;
+  x = 2;
+  x = 3;
+}
+
+function testAssignExpression() => void
+{
+  localvar result : integer;
+  result = 10 + 20;
+}
+
+function testAssignFromVariable() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  a = 5;
+  b = a;
+}
+
+function testAssignArithmetic() => void
+{
+  localvar x : integer;
+  localvar y : integer;
+  
+  x = 10;
+  y = 20;
+  
+  x = x + y;
+  x = x - y;
+  x = x * y;
+  x = x / y;
+}
+
+function testAssignFloats() => void
+{
+  localvar a : float;
+  localvar b : float;
+  
+  a = 1.5;
+  b = 2.5;
+  a = a + b;
+}
+
+function testAssignArrayElement() => void
+{
+  localvar arr : integer[10];
+  arr[0] = 100;
+  arr[5] = 200;
+  arr[9] = 300;
+}
+
+function testAssignFromArrayElement() => void
+{
+  localvar arr : integer[5];
+  localvar x : integer;
+  
+  arr[0] = 10;
+  arr[1] = 20;
+  
+  x = arr[0];
+  x = arr[1];
+}
+
+function testAssignMatrix() => void
+{
+  localvar matrix : integer[5][5];
+  matrix[0][0] = 1;
+  matrix[2][3] = 5;
+  matrix[4][4] = 25;
+}
+
+function testAssignComplexExpression() => void
+{
+  localvar result : integer;
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 10;
+  b = 5;
+  
+  result = a + b * 2;
+  result = (a + b) * 2;
+  result = a * b - a / b;
+}
+
+function testAssignFromFunctionCall() => integer
+{
+  localvar x : integer;
+  x = getValue();
+  return(x);
+}
+
+function getValue() => integer
+{
+  return(42);
+}
+
+function testAssignWithIndexExpression() => void
+{
+  localvar arr : integer[10];
+  localvar i : integer;
+  
+  i = 2;
+  arr[i] = 10;
+  arr[i + 1] = 20;
+  arr[i * 2] = 30;
+}
+
+function testAssignWithComplexIndex() => void
+{
+  localvar arr : integer[10];
+  localvar matrix : integer[5][5];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 1;
+  j = 2;
+  
+  arr[i + j] = 100;
+  matrix[i][j] = 200;
+  matrix[i + 1][j - 1] = 300;
+}
+
+function testAssignUnaryExpression() => void
+{
+  localvar x : integer;
+  localvar y : integer;
+  
+  x = 10;
+  y = -x;
+  y = +x;
+}
+
+function testAssignLogicalExpression() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar result : integer;
+  
+  a = 1;
+  b = 0;
+  
+  result = a and b;
+  result = a or b;
+  result = not a;
+}
+
+function testAssignComparison() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar result : integer;
+  
+  a = 10;
+  b = 20;
+  
+  if (a < b)
+    then { result = 1; }
+    else { result = 0; };
+}
+
+function testAssignInLoop() => void
+{
+  localvar i : integer;
+  localvar sum : integer;
+  
+  sum = 0;
+  i = 0;
+  
+  while (i < 10) {
+    sum = sum + i;
+    i = i + 1;
+  };
+}
+
+function testAssignInIf(condition: integer) => void
+{
+  localvar x : integer;
+  
+  if (condition > 0)
+    then {
+      x = 100;
+    }
+    else {
+      x = -100;
+    };
+}
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+function testAssignMemberAccess() => void
+{
+  localvar p : Point;
+  p.x = 10;
+  p.y = 20;
+}
+
+function testAssignFromMemberAccess() => void
+{
+  localvar p : Point;
+  localvar val : integer;
+  
+  p.x = 50;
+  val = p.x;
+}
+
+function testComplexAssignments() => void
+{
+  localvar arr : integer[10];
+  localvar matrix : integer[5][5];
+  localvar i : integer;
+  localvar j : integer;
+  localvar result : integer;
+  
+  i = 0;
+  j = 1;
+  
+  arr[i] = 10;
+  arr[i + 1] = 20;
+  
+  matrix[i][j] = 30;
+  matrix[i + 1][j + 1] = 40;
+  
+  result = arr[i] + matrix[i][j];
+  
+  arr[i] = result;
+  matrix[i][j] = result * 2;
+}
+
+function testAssignmentCombinations() => void
+{
+  localvar x : integer;
+  localvar arr : integer[5];
+  
+  x = 5;
+  arr[0] = x;
+  arr[1] = arr[0] + 10;
+  x = arr[1];
+  arr[x] = 100;
+}
+
+function testMultipleVariableAssignment() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  localvar temp : integer;
+  
+  a = 1;
+  b = 2;
+  c = 3;
+  
+  temp = a;
+  a = b;
+  b = c;
+  c = temp;
+}

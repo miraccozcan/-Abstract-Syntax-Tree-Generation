@@ -1,0 +1,4 @@
+Syntax error: no rule for FUNCBODY with lookahead "lsqbr" at line 53. Recovering by popping.
+Syntax error: no rule for REPTSTART0 with lookahead "lsqbr" at line 53. Recovering by popping.
+Extra tokens at end near line 53.
+Syntax error: unparsed input remains near line 53.

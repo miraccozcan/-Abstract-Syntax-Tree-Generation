@@ -1,0 +1,40 @@
+/* Test 6.1: Class declarations - Various forms */
+
+/* Empty class */
+class EmptyClass {
+};
+
+/* Class with single member */
+class SingleMember {
+  public attribute x : integer;
+};
+
+/* Class with multiple members */
+class MultipleMembersClass {
+  public attribute a : integer;
+  public attribute b : float;
+  private attribute c : integer;
+  public function compute: () => integer;
+};
+
+/* Nested class scenario */
+class Outer {
+  public attribute inner : Inner;
+};
+
+class Inner {
+  public attribute value : integer;
+};
+
+/* Multiple classes in same file */
+class First {
+  public attribute x : integer;
+};
+
+class Second {
+  public attribute y : float;
+};
+
+class Third {
+  public attribute z : integer;
+};

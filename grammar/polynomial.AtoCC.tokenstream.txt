@@ -1,0 +1,70 @@
+class id lcurbr
+  public function id colon lpar id colon float rpar arrow float semi
+rcurbr semi
+
+class id isa id lcurbr
+  private attribute id colon float semi
+  private attribute id colon float semi
+  public  constructorkeyword colon lpar id colon float comma id colon float rpar semi
+  public  function id colon lpar id colon float rpar arrow float semi
+rcurbr semi
+
+class id isa id lcurbr
+  private attribute id colon float semi
+  private attribute id colon float semi
+  private attribute id colon float semi
+  public  constructorkeyword colon lpar id colon float comma id colon float comma id colon float rpar semi 
+  public  function id colon lpar id colon float rpar arrow float semi
+rcurbr semi
+
+function id sr id lpar id colon float rpar arrow float
+lcurbr
+  return lpar intlit rpar semi
+rcurbr
+
+function id sr id lpar id colon float rpar arrow float
+lcurbr
+  localvar id colon float semi
+  id equal id semi
+  id equal id mult id plus id semi
+  id equal id mult id plus id semi
+  return lpar id rpar semi
+rcurbr
+
+function id sr constructorkeyword lpar id colon float comma id colon float comma id colon float rpar
+lcurbr
+  id dot id equal id semi
+  id dot id equal id semi
+  id dot id equal id semi
+rcurbr
+
+function id sr constructorkeyword lpar id colon float comma id colon float rpar 
+lcurbr
+  id dot id equal id semi
+  id dot id equal id semi
+rcurbr
+
+function id sr id lpar id colon float rpar arrow float 
+lcurbr
+  localvar id colon float semi
+  id equal floatlit semi 
+  id equal id mult id plus id semi
+  return lpar id rpar semi
+rcurbr
+
+function id lpar rpar arrow void
+lcurbr
+  localvar id colon id lpar intlit comma floatlit rpar semi
+  localvar id colon id lpar floatlit comma floatlit comma floatlit rpar semi
+  localvar id colon integer semi
+
+  id equal intlit semi 	
+
+  while lpar id leq intlit rpar
+  lcurbr
+    write lpar id rpar semi
+    write lpar id dot id lpar id rpar rpar semi
+    write lpar id dot id lpar id rpar rpar semi
+  rcurbr semi
+rcurbr
+eof

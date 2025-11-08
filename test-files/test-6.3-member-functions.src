@@ -1,0 +1,40 @@
+/* Test 6.3: Member function declarations - All variations */
+
+class MemberFunctionVariations {
+  /* No parameters, void return */
+  public function doSomething: () => void;
+  
+  /* No parameters, integer return */
+  public function getValue: () => integer;
+  
+  /* One parameter, integer return */
+  public function add: (x: integer) => integer;
+  
+  /* Multiple parameters */
+  public function compute: (a: integer, b: float) => float;
+  
+  /* Three parameters */
+  public function calculate: (x: integer, y: integer, z: integer) => integer;
+  
+  /* Parameter with array type */
+  public function process: (arr: integer[10]) => integer;
+  
+  /* Return array type */
+  public function getArray: () => integer[5];
+  
+  /* Private member function */
+  private function helper: (x: integer) => integer;
+  
+  /* Member function with class type parameter */
+  public function compare: (other: Point) => integer;
+};
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+  public function distance: (other: Point) => float;
+  public function setX: (val: integer) => void;
+  public function setY: (val: integer) => void;
+  public function getX: () => integer;
+  public function getY: () => integer;
+};

@@ -1,0 +1,119 @@
+/* Test 6.9: Integer and float variable declarations */
+
+class IntFloatDataMembers {
+  /* Integer data members */
+  public attribute int1 : integer;
+  public attribute int2 : integer;
+  private attribute int3 : integer;
+  
+  /* Float data members */
+  public attribute float1 : float;
+  public attribute float2 : float;
+  private attribute float3 : float;
+  
+  /* Mixed */
+  public attribute mixedInt : integer;
+  public attribute mixedFloat : float;
+};
+
+function testIntFloatLocals() => void
+{
+  /* Integer local variables */
+  localvar intLocal1 : integer;
+  localvar intLocal2 : integer;
+  localvar intLocal3 : integer;
+  
+  /* Float local variables */
+  localvar floatLocal1 : float;
+  localvar floatLocal2 : float;
+  localvar floatLocal3 : float;
+  
+  /* Initialize integers */
+  intLocal1 = 0;
+  intLocal2 = 42;
+  intLocal3 = -100;
+  
+  /* Initialize floats */
+  floatLocal1 = 0.0;
+  floatLocal2 = 3.14;
+  floatLocal3 = -2.5;
+}
+
+function intParams(a: integer, b: integer, c: integer) => integer
+{
+  localvar result : integer;
+  result = a + b + c;
+  return(result);
+}
+
+function floatParams(x: float, y: float, z: float) => float
+{
+  localvar result : float;
+  result = x + y + z;
+  return(result);
+}
+
+function mixedParams(intVal: integer, floatVal: float) => float
+{
+  localvar intLocal : integer;
+  localvar floatLocal : float;
+  
+  intLocal = intVal;
+  floatLocal = floatVal;
+  
+  return(floatLocal);
+}
+
+function intReturn() => integer
+{
+  return(100);
+}
+
+function floatReturn() => float
+{
+  return(99.9);
+}
+
+function testIntOperations() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  
+  a = 10;
+  b = 20;
+  c = a + b;
+  c = a - b;
+  c = a * b;
+  c = a / b;
+}
+
+function testFloatOperations() => void
+{
+  localvar x : float;
+  localvar y : float;
+  localvar z : float;
+  
+  x = 1.5;
+  y = 2.5;
+  z = x + y;
+  z = x - y;
+  z = x * y;
+  z = x / y;
+}
+
+function testIntFloatMixed() => void
+{
+  localvar intVar1 : integer;
+  localvar intVar2 : integer;
+  localvar floatVar1 : float;
+  localvar floatVar2 : float;
+  
+  intVar1 = 5;
+  intVar2 = 10;
+  floatVar1 = 1.1;
+  floatVar2 = 2.2;
+  
+  intVar1 = intVar2;
+  floatVar1 = floatVar2;
+}

@@ -1,0 +1,68 @@
+/* Test 6.7: Member function definitions - Constructor variations */
+
+/* Simple constructor, no parameters */
+class NoParamConstructor {
+  public attribute x : integer;
+  public constructor: ();
+};
+
+/* Constructor with single parameter */
+class SingleParamConstructor {
+  public attribute value : integer;
+  public constructor: (val: integer);
+};
+
+/* Constructor with multiple parameters */
+class MultiParamConstructor {
+  public attribute x : integer;
+  public attribute y : integer;
+  public constructor: (xVal: integer, yVal: integer);
+};
+
+/* Constructor with local variables */
+class ConstructorWithLocals {
+  public attribute data : integer;
+  public constructor: (val: integer);
+};
+
+/* Multiple constructors pattern (via overloading simulation) */
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+  public constructor: (xVal: integer, yVal: integer);
+};
+
+/* Constructor with complex initialization */
+class ComplexConstructor {
+  public attribute a : integer;
+  public attribute b : float;
+  public attribute arr : integer[10];
+  public constructor: (initVal: integer);
+};
+
+/* Derived class with constructor */
+class BaseClass {
+  public attribute baseValue : integer;
+  public constructor: (val: integer);
+};
+
+class DerivedClass isa BaseClass {
+  public attribute derivedValue : integer;
+  public constructor: (bVal: integer, dVal: integer);
+};
+
+/* Class with constructor and regular member functions */
+class MixedMethods {
+  public attribute data : integer;
+  public constructor: (val: integer);
+  public function getData: () => integer;
+  public function setData: (val: integer) => void;
+};
+
+/* Constructor using this pattern (via member initialization) */
+class InitPattern {
+  public attribute x : integer;
+  public attribute y : integer;
+  public attribute z : integer;
+  public constructor: (xVal: integer, yVal: integer, zVal: integer);
+};

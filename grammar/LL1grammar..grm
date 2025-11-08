@@ -1,0 +1,187 @@
+<START> ::= <PROG> 'eof'  
+
+<ADDOP> ::= 'plus'  
+<ADDOP> ::= 'minus'  
+<ADDOP> ::= 'or'  
+
+<APARAMS> ::= <EXPR> <REPTAPARAMS1>  
+<APARAMS> ::= EPSILON 
+
+<APARAMSTAIL> ::= 'comma' <EXPR>  
+
+<ARITHEXPR> ::= <TERM> <RIGHTRECARITHEXPR>  
+
+<ARRAYSIZE> ::= 'lsqbr' <ARRAYSIZE2>  
+
+<ARRAYSIZE2> ::= 'intlit' 'rsqbr' 
+<ARRAYSIZE2> ::= 'rsqbr' 
+
+<ASSIGNOP> ::= 'equal'  
+
+<EXPR> ::= <ARITHEXPR> <EXPR2> 
+
+<EXPR2> ::= <RELOP> <ARITHEXPR>  
+<EXPR2> ::= EPSILON 
+
+<FACTOR> ::= 'id' <FACTOR2> <REPTVARIABLEORFUNCTIONCALL>  
+<FACTOR> ::= 'intlit'  
+<FACTOR> ::= 'floatlit'  
+<FACTOR> ::= 'lpar' <ARITHEXPR> 'rpar'  
+<FACTOR> ::= 'not' <FACTOR>  
+<FACTOR> ::= <SIGN> <FACTOR>  
+
+<FACTOR2> ::= 'lpar' <APARAMS> 'rpar'  
+<FACTOR2> ::= <REPTIDNEST1>  
+
+<FPARAMS> ::= 'id' 'colon' <TYPE> <REPTFPARAMS3> <REPTFPARAMS4>  
+<FPARAMS> ::= EPSILON 
+
+<FPARAMSTAIL> ::= 'comma' 'id' 'colon' <TYPE> <REPTFPARAMSTAIL4>  
+
+<FUNCBODY> ::= 'lcurbr' <REPTLOCALVARORSTAT> 'rcurbr'  
+
+<MEMBERFUNCDECL> ::= <MEMBERFUNCHEAD> 'semi'  
+
+<MEMBERFUNCHEAD> ::= 'function' 'id' 'colon' 'lpar' <FPARAMS> 'rpar' 'arrow' <RETURNTYPE>  
+<MEMBERFUNCHEAD> ::= 'constructorkeyword'  'colon' 'lpar' <FPARAMS> 'rpar'   
+
+<FUNCDEF> ::= <FUNCHEAD> <FUNCBODY>  
+
+<FUNCHEAD> ::= 'function' 'id' <FUNCHEADTAIL> 
+<FUNCHEADTAIL> ::= 'sr' <FUNCHEADMEMBERTAIL>
+<FUNCHEADTAIL> ::= 'lpar' <FPARAMS> 'rpar' 'arrow' <RETURNTYPE>
+<FUNCHEADMEMBERTAIL> ::= 'id' 'lpar' <FPARAMS> 'rpar' 'arrow' <RETURNTYPE>
+<FUNCHEADMEMBERTAIL> ::= 'constructorkeyword' 'lpar' <FPARAMS> 'rpar'
+
+
+<STATEMENT> ::= 'id' <STATEMENTIDNEST> 'semi' 
+<STATEMENT> ::= 'if' 'lpar' <RELEXPR> 'rpar' 'then' <STATBLOCK> 'else' <STATBLOCK> 'semi'  
+<STATEMENT> ::= 'while' 'lpar' <RELEXPR> 'rpar' <STATBLOCK> 'semi'  
+<STATEMENT> ::= 'read' 'lpar' <VARIABLE> 'rpar' 'semi'  
+<STATEMENT> ::= 'write' 'lpar' <EXPR> 'rpar' 'semi'  
+<STATEMENT> ::= 'return' 'lpar' <EXPR> 'rpar' 'semi'  
+
+<STATEMENTIDNEST> ::= 'dot' 'id' <STATEMENTIDNEST>  
+<STATEMENTIDNEST> ::= 'lpar' <APARAMS> 'rpar' <STATEMENTIDNEST2> 
+<STATEMENTIDNEST> ::= <INDICE> <REPTIDNEST1> <STATEMENTIDNEST3> 
+<STATEMENTIDNEST> ::= <ASSIGNOP> <EXPR>  
+
+<STATEMENTIDNEST2> ::= EPSILON  
+<STATEMENTIDNEST2> ::= 'dot' 'id' <STATEMENTIDNEST>  
+
+<STATEMENTIDNEST3> ::= <ASSIGNOP> <EXPR>   
+<STATEMENTIDNEST3> ::= 'dot' 'id' <STATEMENTIDNEST>  
+
+<REPTIDNEST1> ::= <INDICE> <REPTIDNEST1>  
+<REPTIDNEST1> ::= EPSILON 
+
+<REPTVARIABLEORFUNCTIONCALL> ::=  <IDNEST> <REPTVARIABLEORFUNCTIONCALL>  
+<REPTVARIABLEORFUNCTIONCALL> ::=  EPSILON
+
+<IDNEST> ::= 'dot' 'id' <IDNEST2>  
+<IDNEST2> ::= 'lpar' <APARAMS> 'rpar'  
+<IDNEST2> ::= <REPTIDNEST1>  
+
+<INDICE> ::= 'lsqbr' <ARITHEXPR> 'rsqbr'  
+
+<MEMBERDECL> ::= <MEMBERFUNCDECL>  
+<MEMBERDECL> ::= <MEMBERVARDECL> 
+ 
+<MEMBERVARDECL>  ::= 'attribute' 'id' 'colon' <TYPE> <REPTARRAYSIZE> 'semi'
+
+<MULTOP> ::= 'mult'  
+<MULTOP> ::= 'div'  
+<MULTOP> ::= 'and'  
+
+<OPTINHERITS> ::= 'isa' 'id' <REPTINHERITSLIST>  
+<OPTINHERITS> ::= EPSILON 
+
+<REPTINHERITSLIST>   ::= 'comma' 'id' <REPTINHERITSLIST>  
+<REPTINHERITSLIST>  ::= EPSILON 
+
+<PROG> ::= <REPTPROG0>  
+
+<RELEXPR> ::= <ARITHEXPR> <RELOP> <ARITHEXPR>  
+
+<RELOP> ::= 'eq'  
+<RELOP> ::= 'neq'  
+<RELOP> ::= 'lt'  
+<RELOP> ::= 'gt'  
+<RELOP> ::= 'leq'  
+<RELOP> ::= 'geq'  
+
+<REPTAPARAMS1> ::= <APARAMSTAIL> <REPTAPARAMS1>  
+<REPTAPARAMS1> ::= EPSILON 
+
+<REPTFPARAMS3> ::= <ARRAYSIZE> <REPTFPARAMS3>  
+<REPTFPARAMS3> ::= EPSILON 
+
+<REPTFPARAMS4> ::= <FPARAMSTAIL> <REPTFPARAMS4>  
+<REPTFPARAMS4> ::= EPSILON 
+
+<REPTFPARAMSTAIL4> ::= <ARRAYSIZE> <REPTFPARAMSTAIL4>  
+<REPTFPARAMSTAIL4> ::= EPSILON 
+
+<REPTPROG0> ::= <CLASSDECLORFUNCDEF> <REPTPROG0>   
+<REPTPROG0> ::= EPSILON 
+
+<CLASSDECLORFUNCDEF> ::= <CLASSDECL>
+<CLASSDECLORFUNCDEF> ::= <FUNCDEF>
+	
+<REPTSTATBLOCK1> ::= <STATEMENT> <REPTSTATBLOCK1>   
+<REPTSTATBLOCK1> ::= EPSILON 
+
+<REPTMEMBERDECL> ::= <VISIBILITY> <MEMBERDECL> <REPTMEMBERDECL>  
+<REPTMEMBERDECL> ::= EPSILON 
+
+<REPTARRAYSIZE> ::= <ARRAYSIZE> <REPTARRAYSIZE>   
+<REPTARRAYSIZE> ::= EPSILON 
+
+<RETURNTYPE> ::= <TYPE>   
+<RETURNTYPE> ::= 'void'   
+
+<RIGHTRECARITHEXPR> ::= <ADDOP> <TERM> <RIGHTRECARITHEXPR>   
+<RIGHTRECARITHEXPR> ::=  EPSILON
+
+<RIGHTRECTERM> ::= <MULTOP> <FACTOR> <RIGHTRECTERM>   
+<RIGHTRECTERM> ::=  EPSILON
+
+<SIGN> ::= 'plus'   
+<SIGN> ::= 'minus'   
+
+<STATBLOCK> ::= 'lcurbr' <REPTSTATBLOCK1> 'rcurbr'   
+<STATBLOCK> ::= <STATEMENT>   
+<STATBLOCK> ::=  EPSILON 
+
+<CLASSDECL> ::= 'class' 'id' <OPTINHERITS> 'lcurbr' <REPTMEMBERDECL> 'rcurbr' 'semi'   
+
+<TERM> ::= <FACTOR> <RIGHTRECTERM>   
+
+<TYPE> ::= 'integer'   
+<TYPE> ::= 'float'   
+<TYPE> ::= 'id'   
+
+<LOCALVARDECL> ::= 'localvar' 'id' 'colon' <TYPE> <ARRAYOROBJECT> 'semi'   
+<ARRAYOROBJECT> ::= <REPTARRAYSIZE>
+<ARRAYOROBJECT> ::= 'lpar' <APARAMS> 'rpar' 
+
+<REPTLOCALVARORSTAT> ::= <LOCALVARORSTAT> <REPTLOCALVARORSTAT>
+<REPTLOCALVARORSTAT> ::= EPSILON
+
+<LOCALVARORSTAT> ::= <LOCALVARDECL>   
+<LOCALVARORSTAT> ::= <STATEMENT>   
+
+<VARIABLE> ::=  'id' <VARIABLE2>  
+
+<VARIABLE2> ::=  <REPTIDNEST1> <REPTVARIABLE>    
+<VARIABLE2> ::= ' lpar' <APARAMS> 'rpar' <VARIDNEST>    
+
+<REPTVARIABLE> ::=  <VARIDNEST> <REPTVARIABLE>   
+<REPTVARIABLE> ::=  EPSILON
+
+<VARIDNEST> ::= 'dot' 'id' <VARIDNEST2> 
+<VARIDNEST2> ::= 'lpar' <APARAMS> 'rpar' <VARIDNEST>  
+<VARIDNEST2> ::= <REPTIDNEST1>  
+
+<VISIBILITY> ::= 'public'  
+<VISIBILITY> ::= 'private'

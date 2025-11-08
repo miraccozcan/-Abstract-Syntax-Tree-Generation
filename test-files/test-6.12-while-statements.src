@@ -1,0 +1,238 @@
+/* Test 6.12: While statements - All variations */
+
+function testSimpleWhile() => void
+{
+  localvar i : integer;
+  i = 0;
+  
+  while (i < 10) {
+    write(i);
+    i = i + 1;
+  };
+}
+
+function testWhileWithRelops() => void
+{
+  localvar x : integer;
+  
+  /* While with < */
+  x = 0;
+  while (x < 5) {
+    x = x + 1;
+  };
+  
+  /* While with <= */
+  x = 0;
+  while (x <= 5) {
+    x = x + 1;
+  };
+  
+  /* While with > */
+  x = 10;
+  while (x > 0) {
+    x = x - 1;
+  };
+  
+  /* While with >= */
+  x = 10;
+  while (x >= 0) {
+    x = x - 1;
+  };
+  
+  /* While with == */
+  x = 0;
+  while (x <> 10) {
+    x = x + 1;
+  };
+}
+
+function testWhileWithLogical() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 0;
+  b = 0;
+  
+  /* While with and */
+  while (a < 10 and b < 5) {
+    a = a + 1;
+    b = b + 1;
+  };
+  
+  /* While with or */
+  while (a < 20 or b < 10) {
+    a = a + 1;
+    b = b + 1;
+  };
+}
+
+function testNestedWhile() => void
+{
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 0;
+  while (i < 5) {
+    j = 0;
+    while (j < 5) {
+      write(i);
+      write(j);
+      j = j + 1;
+    };
+    i = i + 1;
+  };
+}
+
+function testWhileWithArrays() => void
+{
+  localvar arr : integer[10];
+  localvar i : integer;
+  
+  i = 0;
+  while (i < 10) {
+    arr[i] = i * 2;
+    i = i + 1;
+  };
+}
+
+function testWhileWithMatrix() => void
+{
+  localvar matrix : integer[5][5];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 0;
+  while (i < 5) {
+    j = 0;
+    while (j < 5) {
+      matrix[i][j] = i + j;
+      j = j + 1;
+    };
+    i = i + 1;
+  };
+}
+
+function testWhileWithMultipleStatements() => void
+{
+  localvar counter : integer;
+  localvar sum : integer;
+  
+  counter = 0;
+  sum = 0;
+  
+  while (counter < 10) {
+    sum = sum + counter;
+    write(sum);
+    counter = counter + 1;
+  };
+}
+
+function testWhileWithComplexCondition(limit: integer) => void
+{
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 0;
+  j = 0;
+  
+  while (i < limit and j < limit * 2) {
+    i = i + 1;
+    j = j + 2;
+  };
+}
+
+function testWhileWithBreakPattern(max: integer) => integer
+{
+  localvar i : integer;
+  localvar found : integer;
+  
+  i = 0;
+  found = 0;
+  
+  while (i < max) {
+    if (i == 5)
+      then {
+        found = 1;
+        i = max;
+      }
+      else {
+        i = i + 1;
+      };
+  };
+  
+  return(found);
+}
+
+function testWhileCountdown() => void
+{
+  localvar n : integer;
+  
+  n = 10;
+  while (n > 0) {
+    write(n);
+    n = n - 1;
+  };
+}
+
+function testWhileWithFunctionCalls() => void
+{
+  localvar i : integer;
+  
+  i = 0;
+  while (i < 5) {
+    write(square(i));
+    i = i + 1;
+  };
+}
+
+function square(n: integer) => integer
+{
+  return(n * n);
+}
+
+function testWhileInfinitePattern() => void
+{
+  localvar running : integer;
+  localvar counter : integer;
+  
+  running = 1;
+  counter = 0;
+  
+  while (running == 1) {
+    counter = counter + 1;
+    if (counter > 100)
+      then {
+        running = 0;
+      }
+      else {
+        write(counter);
+      };
+  };
+}
+
+function testMultipleWhileLoops() => void
+{
+  localvar i : integer;
+  
+  /* First loop */
+  i = 0;
+  while (i < 5) {
+    write(i);
+    i = i + 1;
+  };
+  
+  /* Second loop */
+  i = 10;
+  while (i > 5) {
+    write(i);
+    i = i - 1;
+  };
+  
+  /* Third loop */
+  i = 0;
+  while (i < 3) {
+    write(i * i);
+    i = i + 1;
+  };
+}

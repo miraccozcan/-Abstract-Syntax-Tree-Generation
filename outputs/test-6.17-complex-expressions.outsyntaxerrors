@@ -1,0 +1,6 @@
+Syntax error: expected "rpar" but found "dot" at line 229.
+Syntax error: expected "semi" but found "id" at line 229.
+Syntax error: expected "rcurbr" but found "rpar" at line 229.
+Syntax error: no rule for REPTSTART0 with lookahead "semi" at line 229. Recovering by popping.
+Extra tokens at end near line 229.
+Syntax error: unparsed input remains near line 229.

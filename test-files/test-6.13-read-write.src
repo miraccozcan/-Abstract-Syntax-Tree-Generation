@@ -1,0 +1,225 @@
+/* Test 6.13: Read/Write statements - All variations */
+
+function testSimpleRead() => void
+{
+  localvar x : integer;
+  read(x);
+}
+
+function testSimpleWrite() => void
+{
+  write(42);
+}
+
+function testMultipleReads() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : float;
+  
+  read(a);
+  read(b);
+  read(c);
+}
+
+function testMultipleWrites() => void
+{
+  write(1);
+  write(2);
+  write(3);
+  write(4);
+  write(5);
+}
+
+function testReadWrite() => void
+{
+  localvar x : integer;
+  read(x);
+  write(x);
+}
+
+function testWriteExpressions() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 10;
+  b = 20;
+  
+  /* Write variable */
+  write(a);
+  
+  /* Write expression */
+  write(a + b);
+  write(a - b);
+  write(a * b);
+  write(a / b);
+}
+
+function testWriteStringLiterals() => void
+{
+  write("Hello");
+  write("World");
+  write("Test");
+}
+
+function testReadArray() => void
+{
+  localvar arr : integer[10];
+  localvar i : integer;
+  
+  i = 0;
+  while (i < 10) {
+    read(arr[i]);
+    i = i + 1;
+  };
+}
+
+function testWriteArray() => void
+{
+  localvar arr : integer[5];
+  localvar i : integer;
+  
+  arr[0] = 1;
+  arr[1] = 2;
+  arr[2] = 3;
+  arr[3] = 4;
+  arr[4] = 5;
+  
+  i = 0;
+  while (i < 5) {
+    write(arr[i]);
+    i = i + 1;
+  };
+}
+
+function testReadWriteInLoop() => void
+{
+  localvar i : integer;
+  localvar val : integer;
+  
+  i = 0;
+  while (i < 5) {
+    read(val);
+    write(val);
+    i = i + 1;
+  };
+}
+
+function testReadWriteInIf(condition: integer) => void
+{
+  localvar x : integer;
+  
+  if (condition > 0)
+    then {
+      read(x);
+      write(x);
+    }
+    else {
+      write(0);
+    };
+}
+
+function testWriteFunctionCalls() => void
+{
+  write(getValue());
+  write(square(5));
+  write(add(10, 20));
+}
+
+function getValue() => integer
+{
+  return(100);
+}
+
+function square(n: integer) => integer
+{
+  return(n * n);
+}
+
+function add(a: integer, b: integer) => integer
+{
+  return(a + b);
+}
+
+function testWriteComplexExpressions() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 5;
+  b = 10;
+  
+  write(a + b * 2);
+  write((a + b) * 2);
+  write(a * b - a / b);
+}
+
+function testReadWriteFloats() => void
+{
+  localvar x : float;
+  localvar y : float;
+  
+  read(x);
+  read(y);
+  write(x);
+  write(y);
+  write(x + y);
+}
+
+function testReadWriteMatrix() => void
+{
+  localvar matrix : integer[3][3];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 0;
+  while (i < 3) {
+    j = 0;
+    while (j < 3) {
+      read(matrix[i][j]);
+      j = j + 1;
+    };
+    i = i + 1;
+  };
+  
+  i = 0;
+  while (i < 3) {
+    j = 0;
+    while (j < 3) {
+      write(matrix[i][j]);
+      j = j + 1;
+    };
+    i = i + 1;
+  };
+}
+
+function testMixedReadWrite() => void
+{
+  localvar int1 : integer;
+  localvar int2 : integer;
+  localvar float1 : float;
+  
+  read(int1);
+  write(int1);
+  read(int2);
+  write(int2);
+  read(float1);
+  write(float1);
+  write(int1 + int2);
+}
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+function testReadWriteMembers() => void
+{
+  localvar p : Point;
+  
+  read(p.x);
+  read(p.y);
+  write(p.x);
+  write(p.y);
+}

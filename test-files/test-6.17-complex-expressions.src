@@ -1,0 +1,436 @@
+/* Test 6.17: Complex expressions - addop, multop, relop, unaryop, idnest, function calls */
+
+/* ===== ADDOP TESTS (+, -, or) ===== */
+
+function testAddition() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 10;
+  b = 20;
+  
+  return(a + b);
+}
+
+function testSubtraction() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 30;
+  b = 10;
+  
+  return(a - b);
+}
+
+function testOrOperator() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 1;
+  b = 0;
+  
+  return(a or b);
+}
+
+function testNestedAddition() => integer
+{
+  return(1 + 2 + 3 + 4 + 5);
+}
+
+function testMixedAddSub() => integer
+{
+  return(100 - 20 + 5 - 3 + 10);
+}
+
+/* ===== MULTOP TESTS (*, /, and) ===== */
+
+function testMultiplication() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 5;
+  b = 6;
+  
+  return(a * b);
+}
+
+function testDivision() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 100;
+  b = 5;
+  
+  return(a / b);
+}
+
+function testAndOperator() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  
+  a = 1;
+  b = 1;
+  
+  return(a and b);
+}
+
+function testNestedMultiplication() => integer
+{
+  return(2 * 3 * 4 * 5);
+}
+
+function testMixedMultDiv() => integer
+{
+  return(100 / 2 * 3 / 5);
+}
+
+/* ===== RELOP TESTS (==, <>, <, >, <=, >=) ===== */
+
+function testEquals(a: integer, b: integer) => integer
+{
+  if (a == b)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testNotEquals(a: integer, b: integer) => integer
+{
+  if (a <> b)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testLessThan(a: integer, b: integer) => integer
+{
+  if (a < b)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testGreaterThan(a: integer, b: integer) => integer
+{
+  if (a > b)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testLessOrEqual(a: integer, b: integer) => integer
+{
+  if (a <= b)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testGreaterOrEqual(a: integer, b: integer) => integer
+{
+  if (a >= b)
+    then { return(1); }
+    else { return(0); };
+}
+
+/* ===== UNARY OPERATOR TESTS (+, -, not) ===== */
+
+function testUnaryPlus() => integer
+{
+  localvar x : integer;
+  x = 10;
+  return(+x);
+}
+
+function testUnaryMinus() => integer
+{
+  localvar x : integer;
+  x = 10;
+  return(-x);
+}
+
+function testNotOperator() => integer
+{
+  localvar x : integer;
+  x = 0;
+  return(not x);
+}
+
+function testNestedUnary() => integer
+{
+  localvar x : integer;
+  x = 5;
+  return(-(+x));
+}
+
+function testMultipleUnary() => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  
+  a = 10;
+  b = -a;
+  c = +b;
+  
+  return(c);
+}
+
+/* ===== OPERATOR PRECEDENCE TESTS ===== */
+
+function testPrecedenceMultAdd() => integer
+{
+  /* Should be 2 + (3 * 4) = 14 */
+  return(2 + 3 * 4);
+}
+
+function testPrecedenceDivSub() => integer
+{
+  /* Should be 20 - (10 / 2) = 15 */
+  return(20 - 10 / 2);
+}
+
+function testPrecedenceComplex() => integer
+{
+  /* Should be 1 + (2 * 3) - (8 / 4) = 5 */
+  return(1 + 2 * 3 - 8 / 4);
+}
+
+function testParentheses() => integer
+{
+  /* Should be (1 + 2) * (3 - 1) = 6 */
+  return((1 + 2) * (3 - 1));
+}
+
+function testNestedParentheses() => integer
+{
+  /* Should be ((1 + 2) * 3) + 4 = 13 */
+  return(((1 + 2) * 3) + 4);
+}
+
+/* ===== IDNEST TESTS (member access) ===== */
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+class Line {
+  public attribute start : Point;
+  public attribute end : Point;
+};
+
+function testMemberAccess() => integer
+{
+  localvar p : Point;
+  p.x = 10;
+  p.y = 20;
+  return(p.x);
+}
+
+function testNestedMemberAccess() => integer
+{
+  localvar line : Line;
+  line.start.x = 0;
+  line.start.y = 0;
+  line.end.x = 100;
+  line.end.y = 100;
+  
+  return(line.end.x);
+}
+
+function testMemberAccessInExpression() => integer
+{
+  localvar p1 : Point;
+  localvar p2 : Point;
+  
+  p1.x = 10;
+  p1.y = 20;
+  p2.x = 5;
+  p2.y = 10;
+  
+  return(p1.x + p2.x);
+}
+
+/* ===== FUNCTION CALL TESTS ===== */
+
+function square(n: integer) => integer
+{
+  return(n * n);
+}
+
+function add(a: integer, b: integer) => integer
+{
+  return(a + b);
+}
+
+function multiply(a: integer, b: integer) => integer
+{
+  return(a * b);
+}
+
+function testSimpleFunctionCall() => integer
+{
+  return(square(5));
+}
+
+function testFunctionCallInExpression() => integer
+{
+  return(square(3) + square(4));
+}
+
+function testNestedFunctionCalls() => integer
+{
+  return(square(add(2, 3)));
+}
+
+function testMultipleFunctionCalls() => integer
+{
+  return(add(square(2), multiply(3, 4)));
+}
+
+/* ===== MEMBER FUNCTION CALLS ===== */
+
+class Calculator {
+  public attribute value : integer;
+  public function compute: (x: integer) => integer;
+  public function getValue: () => integer;
+};
+
+function testMemberFunctionCall() => integer
+{
+  localvar calc : Calculator;
+  localvar result : integer;
+  
+  result = calc.compute(10);
+  return(result);
+}
+
+function testMemberFunctionInExpression() => integer
+{
+  localvar calc : Calculator;
+  return(calc.getValue() + 10);
+}
+
+/* ===== COMBINED COMPLEX EXPRESSIONS ===== */
+
+function testComplexExpression1(a: integer, b: integer, c: integer) => integer
+{
+  /* (a + b) * c - a / b */
+  return((a + b) * c - a / b);
+}
+
+function testComplexExpression2(x: integer, y: integer) => integer
+{
+  /* x * x + y * y */
+  return(x * x + y * y);
+}
+
+function testComplexExpression3(a: integer, b: integer) => integer
+{
+  /* (a + b) * (a - b) */
+  return((a + b) * (a - b));
+}
+
+function testComplexWithFunctions(n: integer) => integer
+{
+  /* square(n) + square(n + 1) */
+  return(square(n) + square(n + 1));
+}
+
+function testComplexWithMembers() => integer
+{
+  localvar p1 : Point;
+  localvar p2 : Point;
+  
+  p1.x = 3;
+  p1.y = 4;
+  p2.x = 6;
+  p2.y = 8;
+  
+  /* (p1.x * p1.x + p1.y * p1.y) + (p2.x * p2.x + p2.y * p2.y) */
+  return((p1.x * p1.x + p1.y * p1.y) + (p2.x * p2.x + p2.y * p2.y));
+}
+
+function testAllOperatorsCombined(a: integer, b: integer) => integer
+{
+  localvar result : integer;
+  
+  /* Addop */
+  result = a + b;
+  result = a - b;
+  result = a or b;
+  
+  /* Multop */
+  result = a * b;
+  result = a / b;
+  result = a and b;
+  
+  /* Unaryop */
+  result = +a;
+  result = -a;
+  result = not a;
+  
+  /* Complex combination */
+  result = (a + b) * (a - b) / 2;
+  
+  return(result);
+}
+
+function testExpressionWithArrays() => integer
+{
+  localvar arr : integer[10];
+  localvar i : integer;
+  
+  i = 2;
+  arr[i] = 10;
+  arr[i + 1] = 20;
+  
+  /* arr[i] + arr[i + 1] * 2 */
+  return(arr[i] + arr[i + 1] * 2);
+}
+
+function testExpressionWithEverything() => integer
+{
+  localvar p : Point;
+  localvar arr : integer[10];
+  localvar i : integer;
+  localvar result : integer;
+  
+  p.x = 5;
+  i = 2;
+  arr[i] = 10;
+  
+  /* Unary, addop, multop, member access, array access, function call */
+  result = -p.x + arr[i] * square(3);
+  
+  return(result);
+}
+
+function testLogicalComplexExpressions(a: integer, b: integer, c: integer) => integer
+{
+  if (a > 0 and b > 0 and c > 0)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testNestedLogical(a: integer, b: integer, c: integer) => integer
+{
+  if ((a > 0 and b > 0) or c > 0)
+    then { return(1); }
+    else { return(0); };
+}
+
+function testFloatExpressions(x: float, y: float) => float
+{
+  localvar result : float;
+  
+  result = x + y;
+  result = x - y;
+  result = x * y;
+  result = x / y;
+  result = (x + y) * (x - y);
+  
+  return(result);
+}

@@ -1,0 +1,101 @@
+/* Test 6.6: Free function definitions - All variations */
+
+/* No parameters, void return */
+function simpleFunc() => void
+{
+  localvar x : integer;
+  x = 1;
+}
+
+/* No parameters, integer return */
+function getConstant() => integer
+{
+  return(42);
+}
+
+/* Single parameter */
+function square(n: integer) => integer
+{
+  return(n * n);
+}
+
+/* Multiple parameters */
+function add(a: integer, b: integer) => integer
+{
+  return(a + b);
+}
+
+/* Three parameters */
+function sum3(x: integer, y: integer, z: integer) => integer
+{
+  return(x + y + z);
+}
+
+/* Float parameters and return */
+function multiply(a: float, b: float) => float
+{
+  localvar result : float;
+  result = a * b;
+  return(result);
+}
+
+/* Mixed parameter types */
+function convert(intVal: integer, floatVal: float) => float
+{
+  localvar result : float;
+  result = floatVal;
+  return(result);
+}
+
+/* Function with local variables */
+function complexFunc(n: integer) => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  a = n;
+  b = n * 2;
+  c = a + b;
+  return(c);
+}
+
+/* Function with array parameter */
+function processArray(arr: integer[10]) => integer
+{
+  localvar result : integer;
+  result = arr[0];
+  return(result);
+}
+
+/* Function with class parameter */
+function usePoint(p: Point) => integer
+{
+  localvar val : integer;
+  val = p.x;
+  return(val);
+}
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+/* Function calling other functions */
+function caller(x: integer) => integer
+{
+  localvar result : integer;
+  result = square(x);
+  result = add(result, 10);
+  return(result);
+}
+
+/* Entry point */
+function main() => void
+{
+  localvar val : integer;
+  simpleFunc();
+  val = getConstant();
+  val = square(5);
+  val = add(10, 20);
+  val = complexFunc(15);
+}

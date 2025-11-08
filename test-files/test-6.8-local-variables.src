@@ -1,0 +1,114 @@
+/* Test 6.8: Local variable declarations - All variations */
+
+function testNoLocals() => void
+{
+  /* Function with no local variables */
+}
+
+function testSingleLocal() => void
+{
+  localvar x : integer;
+  x = 10;
+}
+
+function testMultipleLocals() => void
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar c : integer;
+  a = 1;
+  b = 2;
+  c = 3;
+}
+
+function testMixedTypes() => void
+{
+  localvar intVar : integer;
+  localvar floatVar : float;
+  intVar = 42;
+  floatVar = 3.14;
+}
+
+function testArrayLocals() => void
+{
+  localvar arr : integer[10];
+  localvar matrix : float[5][5];
+  arr[0] = 1;
+  matrix[0][0] = 1.0;
+}
+
+function testEmptyArrayLocal() => void
+{
+  localvar emptyArr : integer[];
+}
+
+function testClassTypeLocal() => void
+{
+  localvar p : Point;
+  p.x = 10;
+}
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+function testManyLocals() => void
+{
+  localvar v1 : integer;
+  localvar v2 : integer;
+  localvar v3 : float;
+  localvar v4 : float;
+  localvar v5 : integer[10];
+  localvar v6 : Point;
+  localvar v7 : integer;
+  localvar v8 : float;
+}
+
+function testLocalScopes(param: integer) => integer
+{
+  localvar local1 : integer;
+  local1 = param;
+  
+  if (local1 > 0)
+    then {
+      localvar local2 : integer;
+      local2 = local1 * 2;
+    }
+    else {
+      localvar local3 : integer;
+      local3 = local1 * 3;
+    };
+  
+  return(local1);
+}
+
+function testLocalsInLoop() => void
+{
+  localvar i : integer;
+  localvar sum : integer;
+  i = 0;
+  sum = 0;
+  
+  while (i < 10) {
+    sum = sum + i;
+    i = i + 1;
+  };
+}
+
+function testComplexLocals() => void
+{
+  localvar int1 : integer;
+  localvar float1 : float;
+  localvar arr1 : integer[5];
+  localvar arr2 : float[3][3];
+  localvar obj1 : Point;
+  localvar int2 : integer;
+  
+  int1 = 1;
+  float1 = 2.5;
+  arr1[0] = 10;
+  arr2[0][0] = 1.5;
+  obj1.x = 100;
+  int2 = int1;
+}

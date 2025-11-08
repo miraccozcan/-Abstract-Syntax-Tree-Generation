@@ -1,0 +1,56 @@
+/* Test 6.4: Inheritance lists - All variations */
+
+/* Base class */
+class Animal {
+  public attribute name : integer;
+};
+
+/* Single inheritance */
+class Dog isa Animal {
+  public attribute breed : integer;
+};
+
+/* Another inheritance */
+class Cat isa Animal {
+  public attribute color : integer;
+};
+
+/* Inheritance chain: Bird -> FlyingBird -> Eagle */
+class Bird isa Animal {
+  public attribute wingspan : float;
+};
+
+class FlyingBird isa Bird {
+  public attribute altitude : float;
+};
+
+class Eagle isa FlyingBird {
+  public attribute hunting : integer;
+};
+
+/* Multiple classes inheriting from same base */
+class Vehicle {
+  public attribute speed : integer;
+};
+
+class Car isa Vehicle {
+  public attribute doors : integer;
+};
+
+class Truck isa Vehicle {
+  public attribute capacity : float;
+};
+
+class Motorcycle isa Vehicle {
+  public attribute engineSize : integer;
+};
+
+/* Empty derived class */
+class EmptyDerived isa Vehicle {
+};
+
+/* Derived class with members and functions */
+class Sedan isa Car {
+  public attribute luxury : integer;
+  public function getLuxuryLevel: () => integer;
+};

@@ -1,0 +1,7 @@
+Syntax error: expected "rpar" but found "lt" at line 58.
+Syntax error: no rule for STATBLOCK with lookahead "intlit" at line 58. Recovering by popping.
+Syntax error: expected "semi" but found "intlit" at line 58.
+Syntax error: expected "rcurbr" but found "rpar" at line 58.
+Syntax error: no rule for REPTSTART0 with lookahead "lcurbr" at line 58. Recovering by popping.
+Extra tokens at end near line 58.
+Syntax error: unparsed input remains near line 58.

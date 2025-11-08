@@ -1,0 +1,241 @@
+Program
+  FunctionDef
+    FunctionDecl
+      Identifier: bubbleSort
+      Param
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+      Param
+        Identifier: size
+        TypeName: integer
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: n
+        TypeName: integer
+      VarDecl
+        Identifier: i
+        TypeName: integer
+      VarDecl
+        Identifier: j
+        TypeName: integer
+      VarDecl
+        Identifier: temp
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: n
+        Variable
+          Identifier: size
+      AssignStmt
+        Variable
+          Identifier: i
+        IntLiteral: 0
+      AssignStmt
+        Variable
+          Identifier: j
+        IntLiteral: 0
+      AssignStmt
+        Variable
+          Identifier: temp
+        IntLiteral: 0
+      WhileStmt
+        BinaryExpr: <
+          Variable
+            Identifier: i
+          BinaryExpr: -
+            Variable
+              Identifier: n
+            IntLiteral: 1
+        Block
+          WhileStmt
+            BinaryExpr: <
+              Variable
+                Identifier: j
+              BinaryExpr: -
+                BinaryExpr: -
+                  Variable
+                    Identifier: n
+                  Variable
+                    Identifier: i
+                IntLiteral: 1
+            Block
+              IfStmt
+                BinaryExpr: >
+                  Variable
+                    Identifier: arr
+                    Index
+                      Variable
+                        Identifier: j
+                  Variable
+                    Identifier: arr
+                    Index
+                      BinaryExpr: +
+                        Variable
+                          Identifier: j
+                        IntLiteral: 1
+                Block
+                  AssignStmt
+                    Variable
+                      Identifier: temp
+                    Variable
+                      Identifier: arr
+                      Index
+                        Variable
+                          Identifier: j
+                  AssignStmt
+                    Variable
+                      Identifier: arr
+                      Index
+                        Variable
+                          Identifier: j
+                    Variable
+                      Identifier: arr
+                      Index
+                        BinaryExpr: +
+                          Variable
+                            Identifier: j
+                          IntLiteral: 1
+                  AssignStmt
+                    Variable
+                      Identifier: arr
+                      Index
+                        BinaryExpr: +
+                          Variable
+                            Identifier: j
+                          IntLiteral: 1
+                    Variable
+                      Identifier: temp
+                Block
+              AssignStmt
+                Variable
+                  Identifier: j
+                BinaryExpr: +
+                  Variable
+                    Identifier: j
+                  IntLiteral: 1
+          AssignStmt
+            Variable
+              Identifier: i
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              IntLiteral: 1
+  FunctionDef
+    FunctionDecl
+      Identifier: printArray
+      Param
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+      Param
+        Identifier: size
+        TypeName: integer
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: n
+        TypeName: integer
+      VarDecl
+        Identifier: i
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: n
+        Variable
+          Identifier: size
+      AssignStmt
+        Variable
+          Identifier: i
+        IntLiteral: 0
+      WhileStmt
+        BinaryExpr: <
+          Variable
+            Identifier: i
+          Variable
+            Identifier: n
+        Block
+          WriteStmt
+            Variable
+              Identifier: arr
+              Index
+                Variable
+                  Identifier: i
+          AssignStmt
+            Variable
+              Identifier: i
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              IntLiteral: 1
+  FunctionDef
+    FunctionDecl
+      Identifier: main
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 7
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 0
+        IntLiteral: 64
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 1
+        IntLiteral: 34
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 2
+        IntLiteral: 25
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 3
+        IntLiteral: 12
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 4
+        IntLiteral: 22
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 5
+        IntLiteral: 11
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 6
+        IntLiteral: 90
+      CallStmt
+        FunctionCall
+          Identifier: printarray
+          Variable
+            Identifier: arr
+          IntLiteral: 7
+      CallStmt
+        FunctionCall
+          Identifier: bubbleSort
+          Variable
+            Identifier: arr
+          IntLiteral: 7
+      CallStmt
+        FunctionCall
+          Identifier: printarray
+          Variable
+            Identifier: arr
+          IntLiteral: 7

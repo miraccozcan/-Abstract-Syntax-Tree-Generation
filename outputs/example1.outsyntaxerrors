@@ -1,0 +1,7 @@
+Syntax error: no rule for OPTCLASSDECL2 with lookahead "lcurbr" at line 1. Recovering by popping.
+Syntax error: no rule for REPTCLASSDECL4 with lookahead "float" at line 2. Recovering by popping.
+Syntax error: expected "rcurbr" but found "float" at line 2.
+Syntax error: expected "semi" but found "id" at line 2.
+Syntax error: no rule for REPTSTART0 with lookahead ";" at line 2. Recovering by popping.
+Extra tokens at end near line 2.
+Syntax error: unparsed input remains near line 2.

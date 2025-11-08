@@ -1,0 +1,133 @@
+/* Test 6.10: Array variable declarations - All array variations */
+
+class ArrayDataMembers {
+  /* Single-dimensional arrays */
+  public attribute arr1D_int : integer[10];
+  public attribute arr1D_float : float[20];
+  
+  /* Multi-dimensional arrays */
+  public attribute arr2D_int : integer[5][5];
+  public attribute arr2D_float : float[3][4];
+  public attribute arr3D_int : integer[2][3][4];
+  public attribute arr3D_float : float[10][10][10];
+  
+  /* Empty arrays */
+  public attribute emptyArr1 : integer[];
+  public attribute emptyArr2 : float[];
+  
+  /* Large arrays */
+  public attribute largeArr : integer[1000];
+  
+  /* Different sizes */
+  public attribute small : integer[1];
+  public attribute medium : integer[50];
+  public attribute large : integer[500];
+};
+
+function testArrayLocals() => void
+{
+  /* Single-dimensional local arrays */
+  localvar intArr : integer[15];
+  localvar floatArr : float[25];
+  
+  /* Multi-dimensional local arrays */
+  localvar matrix2D : integer[10][10];
+  localvar matrix3D : float[5][5][5];
+  localvar matrix4D : integer[2][2][2][2];
+  
+  /* Empty local arrays */
+  localvar emptyLocal : integer[];
+  
+  /* Various sizes */
+  localvar tiny : integer[1];
+  localvar small : integer[5];
+  localvar medium : integer[100];
+}
+
+function arrayParameters(arr: integer[10], matrix: float[5][5]) => void
+{
+  localvar local : integer;
+  local = arr[0];
+}
+
+function arrayReturn() => integer[10]
+{
+  localvar result : integer[10];
+  return(result);
+}
+
+function testArrayAccess() => void
+{
+  localvar arr1D : integer[10];
+  localvar arr2D : integer[5][5];
+  localvar arr3D : integer[3][3][3];
+  
+  /* 1D array access */
+  arr1D[0] = 1;
+  arr1D[5] = 10;
+  arr1D[9] = 100;
+  
+  /* 2D array access */
+  arr2D[0][0] = 1;
+  arr2D[2][3] = 5;
+  arr2D[4][4] = 25;
+  
+  /* 3D array access */
+  arr3D[0][0][0] = 1;
+  arr3D[1][1][1] = 2;
+  arr3D[2][2][2] = 3;
+}
+
+function testArrayInitialization() => void
+{
+  localvar numbers : integer[5];
+  localvar values : float[3];
+  
+  numbers[0] = 10;
+  numbers[1] = 20;
+  numbers[2] = 30;
+  numbers[3] = 40;
+  numbers[4] = 50;
+  
+  values[0] = 1.1;
+  values[1] = 2.2;
+  values[2] = 3.3;
+}
+
+function testNestedArrays() => void
+{
+  localvar matrix : integer[10][10];
+  localvar cube : integer[5][5][5];
+  localvar i : integer;
+  localvar j : integer;
+  localvar k : integer;
+  
+  i = 0;
+  j = 0;
+  k = 0;
+  
+  matrix[i][j] = 100;
+  cube[i][j][k] = 200;
+}
+
+function testDifferentArraySizes() => void
+{
+  localvar arr1 : integer[1];
+  localvar arr2 : integer[2];
+  localvar arr5 : integer[5];
+  localvar arr10 : integer[10];
+  localvar arr100 : integer[100];
+  
+  arr1[0] = 1;
+  arr2[1] = 2;
+  arr5[4] = 5;
+  arr10[9] = 10;
+  arr100[99] = 100;
+}
+
+class ArrayContainer {
+  public attribute data1D : integer[50];
+  public attribute data2D : float[20][20];
+  public attribute data3D : integer[10][10][10];
+  private attribute privateArr : integer[100];
+};

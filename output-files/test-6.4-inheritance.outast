@@ -1,0 +1,105 @@
+Program
+  ClassDecl
+    Identifier: Animal
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: name
+        TypeName: integer
+  ClassDecl
+    Identifier: Dog
+    InheritList
+      Identifier: Animal
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: breed
+        TypeName: integer
+  ClassDecl
+    Identifier: Cat
+    InheritList
+      Identifier: Animal
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: color
+        TypeName: integer
+  ClassDecl
+    Identifier: Bird
+    InheritList
+      Identifier: Animal
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: wingspan
+        TypeName: float
+  ClassDecl
+    Identifier: FlyingBird
+    InheritList
+      Identifier: Bird
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: altitude
+        TypeName: float
+  ClassDecl
+    Identifier: Eagle
+    InheritList
+      Identifier: FlyingBird
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: hunting
+        TypeName: integer
+  ClassDecl
+    Identifier: Vehicle
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: speed
+        TypeName: integer
+  ClassDecl
+    Identifier: Car
+    InheritList
+      Identifier: Vehicle
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: doors
+        TypeName: integer
+  ClassDecl
+    Identifier: Truck
+    InheritList
+      Identifier: Vehicle
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: capacity
+        TypeName: float
+  ClassDecl
+    Identifier: Motorcycle
+    InheritList
+      Identifier: Vehicle
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: engineSize
+        TypeName: integer
+  ClassDecl
+    Identifier: EmptyDerived
+    InheritList
+      Identifier: Vehicle
+  ClassDecl
+    Identifier: Sedan
+    InheritList
+      Identifier: Car
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: luxury
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: getLuxuryLevel
+        TypeName: integer

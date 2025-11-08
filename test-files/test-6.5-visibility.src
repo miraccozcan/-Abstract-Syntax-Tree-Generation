@@ -1,0 +1,56 @@
+/* Test 6.5: Private/Public members - All visibility combinations */
+
+class VisibilityTest {
+  /* Public data members */
+  public attribute publicInt : integer;
+  public attribute publicFloat : float;
+  public attribute publicArray : integer[10];
+  
+  /* Private data members */
+  private attribute privateInt : integer;
+  private attribute privateFloat : float;
+  private attribute privateArray : float[5][5];
+  
+  /* Public member functions */
+  public function publicMethod1: () => void;
+  public function publicMethod2: (x: integer) => integer;
+  
+  /* Private member functions */
+  private function privateHelper: () => integer;
+  private function privateMethod: (x: integer, y: float) => float;
+};
+
+class AllPublic {
+  public attribute a : integer;
+  public attribute b : float;
+  public function getA: () => integer;
+  public function setB: (val: float) => void;
+};
+
+class AllPrivate {
+  private attribute x : integer;
+  private attribute y : float;
+  private function helper: () => void;
+};
+
+class MixedVisibility {
+  public attribute publicData1 : integer;
+  private attribute privateData1 : integer;
+  public attribute publicData2 : float;
+  private attribute privateData2 : float;
+  public function publicFunc1: () => void;
+  private function privateFunc1: () => void;
+  public function publicFunc2: (x: integer) => integer;
+  private function privateFunc2: (x: float) => float;
+};
+
+/* Visibility in inherited classes */
+class BaseWithVisibility {
+  public attribute publicBase : integer;
+  private attribute privateBase : integer;
+};
+
+class DerivedWithVisibility isa BaseWithVisibility {
+  public attribute publicDerived : integer;
+  private attribute privateDerived : integer;
+};

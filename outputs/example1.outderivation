@@ -1,0 +1,8 @@
+START
+REPTSTART0
+CLASSDECLORFUNCDEF REPTSTART0
+CLASSDECL REPTSTART0
+class id OPTCLASSDECL2 lcurbr REPTCLASSDECL4 rcurbr semi REPTSTART0
+class id lcurbr REPTCLASSDECL4 rcurbr semi REPTSTART0
+class id lcurbr rcurbr semi REPTSTART0
+class id lcurbr rcurbr semi

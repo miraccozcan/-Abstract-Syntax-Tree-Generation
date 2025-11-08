@@ -1,0 +1,4 @@
+function test() => void {
+  localvar f1: Test;
+  write(f1.evaluate(5));
+}

@@ -1,0 +1,190 @@
+Program
+  ClassDecl
+    Identifier: NoParamConstructor
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+  ClassDecl
+    Identifier: SingleParamConstructor
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: value
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: val
+          TypeName: integer
+  ClassDecl
+    Identifier: MultiParamConstructor
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: y
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: xVal
+          TypeName: integer
+        Param
+          Identifier: yVal
+          TypeName: integer
+  ClassDecl
+    Identifier: ConstructorWithLocals
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: data
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: val
+          TypeName: integer
+  ClassDecl
+    Identifier: Point
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: y
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: xVal
+          TypeName: integer
+        Param
+          Identifier: yVal
+          TypeName: integer
+  ClassDecl
+    Identifier: ComplexConstructor
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: a
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: b
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: initVal
+          TypeName: integer
+  ClassDecl
+    Identifier: BaseClass
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: baseValue
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: val
+          TypeName: integer
+  ClassDecl
+    Identifier: DerivedClass
+    InheritList
+      Identifier: BaseClass
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: derivedValue
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: bVal
+          TypeName: integer
+        Param
+          Identifier: dVal
+          TypeName: integer
+  ClassDecl
+    Identifier: MixedMethods
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: data
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: val
+          TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: getData
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: setData
+        Param
+          Identifier: val
+          TypeName: integer
+        TypeName: void
+  ClassDecl
+    Identifier: InitPattern
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: y
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: z
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: xVal
+          TypeName: integer
+        Param
+          Identifier: yVal
+          TypeName: integer
+        Param
+          Identifier: zVal
+          TypeName: integer

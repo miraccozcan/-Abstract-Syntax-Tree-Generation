@@ -1,0 +1,61 @@
+Program
+  ClassDecl
+    Identifier: MemberFunctionVariations
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: doSomething
+        TypeName: void
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: getValue
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: add
+        Param
+          Identifier: x
+          TypeName: integer
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: compute
+        Param
+          Identifier: a
+          TypeName: integer
+        Param
+          Identifier: b
+          TypeName: float
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: calculate
+        Param
+          Identifier: x
+          TypeName: integer
+        Param
+          Identifier: y
+          TypeName: integer
+        Param
+          Identifier: z
+          TypeName: integer
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: process
+        Param
+          Identifier: arr
+          TypeName: integer
+          ArrayDim
+            IntLiteral: 10
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: getArray
+        TypeName: integer

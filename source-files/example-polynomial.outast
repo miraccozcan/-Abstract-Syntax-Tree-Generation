@@ -1,0 +1,269 @@
+Program
+  ClassDecl
+    Identifier: POLYNOMIAL
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: evaluate
+        Param
+          Identifier: x
+          TypeName: float
+        TypeName: float
+  ClassDecl
+    Identifier: LINEAR
+    InheritList
+      Identifier: POLYNOMIAL
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: a
+        TypeName: float
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: b
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: A
+          TypeName: float
+        Param
+          Identifier: B
+          TypeName: float
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: evaluate
+        Param
+          Identifier: x
+          TypeName: float
+        TypeName: float
+  ClassDecl
+    Identifier: QUADRATIC
+    InheritList
+      Identifier: POLYNOMIAL
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: a
+        TypeName: float
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: b
+        TypeName: float
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: c
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: A
+          TypeName: float
+        Param
+          Identifier: B
+          TypeName: float
+        Param
+          Identifier: C
+          TypeName: float
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: evaluate
+        Param
+          Identifier: x
+          TypeName: float
+        TypeName: float
+  FunctionDef
+    FunctionDecl
+      ScopeResolution
+        Identifier: POLYNOMIAL
+      Identifier: evaluate
+      Param
+        Identifier: x
+        TypeName: float
+      TypeName: float
+    Block
+      ReturnStmt
+        IntLiteral: 0
+  FunctionDef
+    FunctionDecl
+      ScopeResolution
+        Identifier: QUADRATIC
+      Identifier: evaluate
+      Param
+        Identifier: x
+        TypeName: float
+      TypeName: float
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: result
+        Variable
+          Identifier: a
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          BinaryExpr: *
+            Variable
+              Identifier: result
+            Variable
+              Identifier: x
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          BinaryExpr: *
+            Variable
+              Identifier: result
+            Variable
+              Identifier: x
+          Variable
+            Identifier: c
+      ReturnStmt
+        Variable
+          Identifier: result
+  FunctionDef
+    FunctionDecl
+      Identifier: QUADRATIC
+      Param
+        Identifier: A
+        TypeName: float
+      Param
+        Identifier: B
+        TypeName: float
+      Param
+        Identifier: C
+        TypeName: float
+    Block
+      STATEMENT
+        Identifier: self
+        Identifier: a
+        Operator: =
+        Variable
+          Identifier: A
+      STATEMENT
+        Identifier: self
+        Identifier: b
+        Operator: =
+        Variable
+          Identifier: B
+      STATEMENT
+        Identifier: self
+        Identifier: c
+        Operator: =
+        Variable
+          Identifier: C
+  FunctionDef
+    FunctionDecl
+      Identifier: LINEAR
+      Param
+        Identifier: A
+        TypeName: float
+      Param
+        Identifier: B
+        TypeName: float
+    Block
+      STATEMENT
+        Identifier: self
+        Identifier: a
+        Operator: =
+        Variable
+          Identifier: A
+      STATEMENT
+        Identifier: self
+        Identifier: b
+        Operator: =
+        Variable
+          Identifier: B
+  FunctionDef
+    FunctionDecl
+      ScopeResolution
+        Identifier: LINEAR
+      Identifier: evaluate
+      Param
+        Identifier: x
+        TypeName: float
+      TypeName: float
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: result
+        FloatLiteral: 0.0
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          BinaryExpr: *
+            Variable
+              Identifier: a
+            Variable
+              Identifier: x
+          Variable
+            Identifier: b
+      ReturnStmt
+        Variable
+          Identifier: result
+  FunctionDef
+    FunctionDecl
+      Identifier: main
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: f1
+        Identifier: LINEAR
+        InitializerCall
+          IntLiteral: 2
+          FloatLiteral: 3.5
+      VarDecl
+        Identifier: f2
+        Identifier: QUADRATIC
+        InitializerCall
+          UnaryExpr: -
+            FloatLiteral: 2.0
+          FloatLiteral: 1.0
+          FloatLiteral: 0.0
+      VarDecl
+        Identifier: counter
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: counter
+        IntLiteral: 1
+      WhileStmt
+        BinaryExpr: <=
+          Variable
+            Identifier: counter
+          IntLiteral: 10
+        Block
+          WriteStmt
+            Variable
+              Identifier: counter
+          WriteStmt
+            FunctionCall
+              MemberAccess
+                Identifier: f1
+              Identifier: evaluate
+              Variable
+                Identifier: counter
+          WriteStmt
+            FunctionCall
+              MemberAccess
+                Identifier: f2
+              Identifier: evaluate
+              Variable
+                Identifier: counter

@@ -1,0 +1,613 @@
+Program
+  ClassDecl
+    Identifier: TestClass
+  ClassDecl
+    Identifier: DataMemberTest
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: y
+        TypeName: float
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: matrix
+        TypeName: float
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+  ClassDecl
+    Identifier: MemberFuncDeclTest
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: compute
+        Param
+          Identifier: a
+          TypeName: integer
+        TypeName: integer
+  ClassDecl
+    Identifier: Base
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: value
+        TypeName: integer
+  ClassDecl
+    Identifier: Derived
+    InheritList
+      Identifier: Base
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: extra
+        TypeName: float
+  FunctionDef
+    FunctionDecl
+      Identifier: freeFunc
+      Param
+        Identifier: n
+        TypeName: integer
+      TypeName: integer
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: result
+        Variable
+          Identifier: n
+      ReturnStmt
+        Variable
+          Identifier: result
+  ClassDecl
+    Identifier: WithConstructor
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: data
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      Constructor
+        Param
+          Identifier: val
+          TypeName: integer
+  FunctionDef
+    FunctionDecl
+      Identifier: testLocals
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: a
+        TypeName: integer
+      VarDecl
+        Identifier: b
+        TypeName: float
+      VarDecl
+        Identifier: c
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 3
+  FunctionDef
+    FunctionDecl
+      Identifier: testIf
+      Param
+        Identifier: x
+        TypeName: integer
+      TypeName: void
+    Block
+      IfStmt
+        BinaryExpr: ==
+          Variable
+            Identifier: x
+          IntLiteral: 5
+        Block
+          WriteStmt
+            Variable
+              Identifier: x
+        Block
+          WriteStmt
+            IntLiteral: 0
+  FunctionDef
+    FunctionDecl
+      Identifier: testWhile
+      Param
+        Identifier: n
+        TypeName: integer
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: i
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: i
+        IntLiteral: 0
+      WhileStmt
+        BinaryExpr: <
+          Variable
+            Identifier: i
+          Variable
+            Identifier: n
+        Block
+          WriteStmt
+            Variable
+              Identifier: i
+          AssignStmt
+            Variable
+              Identifier: i
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              IntLiteral: 1
+  FunctionDef
+    FunctionDecl
+      Identifier: testReadWrite
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: x
+        TypeName: integer
+      ReadStmt
+        Variable
+          Identifier: x
+      WriteStmt
+        Variable
+          Identifier: x
+  FunctionDef
+    FunctionDecl
+      Identifier: testReturn
+      Param
+        Identifier: val
+        TypeName: integer
+      TypeName: integer
+    Block
+      ReturnStmt
+        BinaryExpr: +
+          Variable
+            Identifier: val
+          IntLiteral: 1
+  FunctionDef
+    FunctionDecl
+      Identifier: testAssignment
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: x
+        TypeName: integer
+      VarDecl
+        Identifier: y
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: x
+        IntLiteral: 42
+      AssignStmt
+        Variable
+          Identifier: y
+        FloatLiteral: 3.14
+  FunctionDef
+    FunctionDecl
+      Identifier: testComplexIndices
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+      VarDecl
+        Identifier: matrix
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+      VarDecl
+        Identifier: i
+        TypeName: integer
+      VarDecl
+        Identifier: j
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: i
+        IntLiteral: 0
+      AssignStmt
+        Variable
+          Identifier: j
+        IntLiteral: 1
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 0
+        IntLiteral: 5
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            Variable
+              Identifier: i
+        IntLiteral: 10
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              IntLiteral: 1
+        IntLiteral: 15
+      AssignStmt
+        Variable
+          Identifier: arr
+          Index
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              Variable
+                Identifier: j
+        IntLiteral: 20
+      AssignStmt
+        Variable
+          Identifier: matrix
+          Index
+            IntLiteral: 0
+          Index
+            IntLiteral: 0
+        IntLiteral: 1
+      AssignStmt
+        Variable
+          Identifier: matrix
+          Index
+            Variable
+              Identifier: i
+          Index
+            Variable
+              Identifier: j
+        IntLiteral: 2
+      AssignStmt
+        Variable
+          Identifier: matrix
+          Index
+            BinaryExpr: +
+              Variable
+                Identifier: i
+              IntLiteral: 1
+          Index
+            BinaryExpr: -
+              Variable
+                Identifier: j
+              IntLiteral: 1
+        IntLiteral: 3
+      AssignStmt
+        Variable
+          Identifier: matrix
+          Index
+            Variable
+              Identifier: arr
+              Index
+                Variable
+                  Identifier: i
+          Index
+            Variable
+              Identifier: arr
+              Index
+                Variable
+                  Identifier: j
+        IntLiteral: 4
+  FunctionDef
+    FunctionDecl
+      Identifier: testComplexExpressions
+      Param
+        Identifier: a
+        TypeName: integer
+      Param
+        Identifier: b
+        TypeName: integer
+      TypeName: integer
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: integer
+      VarDecl
+        Identifier: temp
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: -
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: or
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: *
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: /
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: and
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      IfStmt
+        BinaryExpr: ==
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      IfStmt
+        BinaryExpr: !=
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      IfStmt
+        BinaryExpr: <
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      IfStmt
+        BinaryExpr: >
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      IfStmt
+        BinaryExpr: <=
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      IfStmt
+        BinaryExpr: >=
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 1
+        Block
+          AssignStmt
+            Variable
+              Identifier: result
+            IntLiteral: 0
+      AssignStmt
+        Variable
+          Identifier: result
+        UnaryExpr: +
+          Variable
+            Identifier: a
+      AssignStmt
+        Variable
+          Identifier: result
+        UnaryExpr: -
+          Variable
+            Identifier: a
+      AssignStmt
+        Variable
+          Identifier: result
+        UnaryExpr: not
+          Variable
+            Identifier: a
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: -
+          BinaryExpr: +
+            Variable
+              Identifier: a
+            BinaryExpr: *
+              Variable
+                Identifier: b
+              IntLiteral: 2
+          BinaryExpr: /
+            IntLiteral: 3
+            IntLiteral: 1
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: *
+          BinaryExpr: +
+            Variable
+              Identifier: a
+            Variable
+              Identifier: b
+          BinaryExpr: -
+            IntLiteral: 2
+            IntLiteral: 3
+      ReturnStmt
+        Variable
+          Identifier: result
+  ClassDecl
+    Identifier: Point
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: x
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: y
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      MemberFuncDecl
+        Identifier: distance
+        Param
+          Identifier: other
+          Identifier: Point
+        TypeName: float
+  FunctionDef
+    FunctionDecl
+      Identifier: testMemberAccessAndCalls
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: p
+        Identifier: Point
+      VarDecl
+        Identifier: q
+        Identifier: Point
+      VarDecl
+        Identifier: dist
+        TypeName: float
+      STATEMENT
+        Identifier: p
+        Identifier: x
+        Operator: =
+        IntLiteral: 10
+      STATEMENT
+        Identifier: p
+        Identifier: y
+        Operator: =
+        IntLiteral: 20
+      AssignStmt
+        Variable
+          Identifier: dist
+        FunctionCall
+          MemberAccess
+            Identifier: p
+          Identifier: distance
+          Variable
+            Identifier: q
+      WriteStmt
+        FunctionCall
+          Identifier: freeFunc
+          IntLiteral: 42
+  FunctionDef
+    FunctionDecl
+      Identifier: main
+      TypeName: void
+    Block
+      CallStmt
+        FunctionCall
+          Identifier: testIf
+          IntLiteral: 5
+      CallStmt
+        FunctionCall
+          Identifier: testWhile
+          IntLiteral: 10
+      CallStmt
+        FunctionCall
+          Identifier: testReadWrite
+      WriteStmt
+        FunctionCall
+          Identifier: testReturn
+          IntLiteral: 99
+      CallStmt
+        FunctionCall
+          Identifier: testAssignment
+      CallStmt
+        FunctionCall
+          Identifier: testComplexIndices
+      WriteStmt
+        FunctionCall
+          Identifier: testComplexExpressions
+          IntLiteral: 10
+          IntLiteral: 20
+      CallStmt
+        FunctionCall
+          Identifier: testMemberAccessAndCalls

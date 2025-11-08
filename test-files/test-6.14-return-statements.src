@@ -1,0 +1,228 @@
+/* Test 6.14: Return statements - All variations */
+
+function testSimpleReturn() => integer
+{
+  return(42);
+}
+
+function testReturnVariable() => integer
+{
+  localvar x : integer;
+  x = 100;
+  return(x);
+}
+
+function testReturnExpression() => integer
+{
+  return(10 + 20);
+}
+
+function testReturnAddition(a: integer, b: integer) => integer
+{
+  return(a + b);
+}
+
+function testReturnSubtraction(a: integer, b: integer) => integer
+{
+  return(a - b);
+}
+
+function testReturnMultiplication(a: integer, b: integer) => integer
+{
+  return(a * b);
+}
+
+function testReturnDivision(a: integer, b: integer) => integer
+{
+  return(a / b);
+}
+
+function testReturnComplexExpression(a: integer, b: integer) => integer
+{
+  return(a + b * 2 - 3);
+}
+
+function testReturnFloatExpression(x: float, y: float) => float
+{
+  return(x + y);
+}
+
+function testReturnInIf(condition: integer) => integer
+{
+  if (condition > 0)
+    then {
+      return(1);
+    }
+    else {
+      return(0);
+    };
+}
+
+function testReturnInWhile(limit: integer) => integer
+{
+  localvar i : integer;
+  
+  i = 0;
+  while (i < limit) {
+    if (i == 5)
+      then {
+        return(i);
+      }
+      else {
+        i = i + 1;
+      };
+  };
+  
+  return(-1);
+}
+
+function testReturnArrayElement() => integer
+{
+  localvar arr : integer[5];
+  arr[0] = 10;
+  arr[1] = 20;
+  arr[2] = 30;
+  return(arr[2]);
+}
+
+function testReturnArrayExpression(arr: integer[10], index: integer) => integer
+{
+  return(arr[index]);
+}
+
+function testReturnFunctionCall() => integer
+{
+  return(square(7));
+}
+
+function square(n: integer) => integer
+{
+  return(n * n);
+}
+
+function testReturnNestedCall() => integer
+{
+  return(square(square(2)));
+}
+
+function testReturnWithLocal() => integer
+{
+  localvar result : integer;
+  result = 10;
+  result = result * 2;
+  result = result + 5;
+  return(result);
+}
+
+function testMultipleReturns(x: integer) => integer
+{
+  if (x < 0)
+    then {
+      return(-1);
+    }
+    else {
+      if (x == 0)
+        then {
+          return(0);
+        }
+        else {
+          return(1);
+        };
+    };
+}
+
+function testReturnComparison(a: integer, b: integer) => integer
+{
+  if (a > b)
+    then {
+      return(a);
+    }
+    else {
+      return(b);
+    };
+}
+
+function testReturnLogicalExpression(a: integer, b: integer) => integer
+{
+  if (a > 0 and b > 0)
+    then {
+      return(1);
+    }
+    else {
+      return(0);
+    };
+}
+
+function testReturnUnaryExpression(x: integer) => integer
+{
+  return(-x);
+}
+
+function testReturnMatrix() => integer
+{
+  localvar matrix : integer[3][3];
+  matrix[1][1] = 99;
+  return(matrix[1][1]);
+}
+
+function testReturnComplexIndex(arr: integer[10]) => integer
+{
+  localvar i : integer;
+  i = 2;
+  return(arr[i + 1]);
+}
+
+class Point {
+  public attribute x : integer;
+  public attribute y : integer;
+};
+
+function testReturnMemberAccess() => integer
+{
+  localvar p : Point;
+  p.x = 50;
+  return(p.x);
+}
+
+function factorial(n: integer) => integer
+{
+  localvar result : integer;
+  localvar i : integer;
+  
+  result = 1;
+  i = 1;
+  
+  while (i <= n) {
+    result = result * i;
+    i = i + 1;
+  };
+  
+  return(result);
+}
+
+function fibonacci(n: integer) => integer
+{
+  localvar a : integer;
+  localvar b : integer;
+  localvar temp : integer;
+  localvar i : integer;
+  
+  if (n <= 1)
+    then {
+      return(n);
+    }
+    else {
+      a = 0;
+      b = 1;
+      i = 2;
+      
+      while (i <= n) {
+        temp = a + b;
+        a = b;
+        b = temp;
+        i = i + 1;
+      };
+      
+      return(b);
+    };
+}

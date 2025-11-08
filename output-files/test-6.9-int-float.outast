@@ -1,0 +1,349 @@
+Program
+  ClassDecl
+    Identifier: IntFloatDataMembers
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: int1
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: int2
+        TypeName: integer
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: int3
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: float1
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: float2
+        TypeName: float
+    MemberDecl
+      Keyword: private
+      VarDecl
+        Identifier: float3
+        TypeName: float
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: mixedInt
+        TypeName: integer
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: mixedFloat
+        TypeName: float
+  FunctionDef
+    FunctionDecl
+      Identifier: testIntFloatLocals
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: intLocal1
+        TypeName: integer
+      VarDecl
+        Identifier: intLocal2
+        TypeName: integer
+      VarDecl
+        Identifier: intLocal3
+        TypeName: integer
+      VarDecl
+        Identifier: floatLocal1
+        TypeName: float
+      VarDecl
+        Identifier: floatLocal2
+        TypeName: float
+      VarDecl
+        Identifier: floatLocal3
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: intLocal1
+        IntLiteral: 0
+      AssignStmt
+        Variable
+          Identifier: intLocal2
+        IntLiteral: 42
+      AssignStmt
+        Variable
+          Identifier: intLocal3
+        UnaryExpr: -
+          IntLiteral: 100
+      AssignStmt
+        Variable
+          Identifier: floatLocal1
+        FloatLiteral: 0.0
+      AssignStmt
+        Variable
+          Identifier: floatLocal2
+        FloatLiteral: 3.14
+      AssignStmt
+        Variable
+          Identifier: floatLocal3
+        UnaryExpr: -
+          FloatLiteral: 2.5
+  FunctionDef
+    FunctionDecl
+      Identifier: intParams
+      Param
+        Identifier: a
+        TypeName: integer
+      Param
+        Identifier: b
+        TypeName: integer
+      Param
+        Identifier: c
+        TypeName: integer
+      TypeName: integer
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          BinaryExpr: +
+            Variable
+              Identifier: a
+            Variable
+              Identifier: b
+          Variable
+            Identifier: c
+      ReturnStmt
+        Variable
+          Identifier: result
+  FunctionDef
+    FunctionDecl
+      Identifier: floatParams
+      Param
+        Identifier: x
+        TypeName: float
+      Param
+        Identifier: y
+        TypeName: float
+      Param
+        Identifier: z
+        TypeName: float
+      TypeName: float
+    Block
+      VarDecl
+        Identifier: result
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: result
+        BinaryExpr: +
+          BinaryExpr: +
+            Variable
+              Identifier: x
+            Variable
+              Identifier: y
+          Variable
+            Identifier: z
+      ReturnStmt
+        Variable
+          Identifier: result
+  FunctionDef
+    FunctionDecl
+      Identifier: mixedParams
+      Param
+        Identifier: intVal
+        TypeName: integer
+      Param
+        Identifier: floatVal
+        TypeName: float
+      TypeName: float
+    Block
+      VarDecl
+        Identifier: intLocal
+        TypeName: integer
+      VarDecl
+        Identifier: floatLocal
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: intLocal
+        Variable
+          Identifier: intVal
+      AssignStmt
+        Variable
+          Identifier: floatLocal
+        Variable
+          Identifier: floatVal
+      ReturnStmt
+        Variable
+          Identifier: floatLocal
+  FunctionDef
+    FunctionDecl
+      Identifier: intReturn
+      TypeName: integer
+    Block
+      ReturnStmt
+        IntLiteral: 100
+  FunctionDef
+    FunctionDecl
+      Identifier: floatReturn
+      TypeName: float
+    Block
+      ReturnStmt
+        FloatLiteral: 99.9
+  FunctionDef
+    FunctionDecl
+      Identifier: testIntOperations
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: a
+        TypeName: integer
+      VarDecl
+        Identifier: b
+        TypeName: integer
+      VarDecl
+        Identifier: c
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: a
+        IntLiteral: 10
+      AssignStmt
+        Variable
+          Identifier: b
+        IntLiteral: 20
+      AssignStmt
+        Variable
+          Identifier: c
+        BinaryExpr: +
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: c
+        BinaryExpr: -
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: c
+        BinaryExpr: *
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+      AssignStmt
+        Variable
+          Identifier: c
+        BinaryExpr: /
+          Variable
+            Identifier: a
+          Variable
+            Identifier: b
+  FunctionDef
+    FunctionDecl
+      Identifier: testFloatOperations
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: x
+        TypeName: float
+      VarDecl
+        Identifier: y
+        TypeName: float
+      VarDecl
+        Identifier: z
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: x
+        FloatLiteral: 1.5
+      AssignStmt
+        Variable
+          Identifier: y
+        FloatLiteral: 2.5
+      AssignStmt
+        Variable
+          Identifier: z
+        BinaryExpr: +
+          Variable
+            Identifier: x
+          Variable
+            Identifier: y
+      AssignStmt
+        Variable
+          Identifier: z
+        BinaryExpr: -
+          Variable
+            Identifier: x
+          Variable
+            Identifier: y
+      AssignStmt
+        Variable
+          Identifier: z
+        BinaryExpr: *
+          Variable
+            Identifier: x
+          Variable
+            Identifier: y
+      AssignStmt
+        Variable
+          Identifier: z
+        BinaryExpr: /
+          Variable
+            Identifier: x
+          Variable
+            Identifier: y
+  FunctionDef
+    FunctionDecl
+      Identifier: testIntFloatMixed
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: intVar1
+        TypeName: integer
+      VarDecl
+        Identifier: intVar2
+        TypeName: integer
+      VarDecl
+        Identifier: floatVar1
+        TypeName: float
+      VarDecl
+        Identifier: floatVar2
+        TypeName: float
+      AssignStmt
+        Variable
+          Identifier: intVar1
+        IntLiteral: 5
+      AssignStmt
+        Variable
+          Identifier: intVar2
+        IntLiteral: 10
+      AssignStmt
+        Variable
+          Identifier: floatVar1
+        FloatLiteral: 1.1
+      AssignStmt
+        Variable
+          Identifier: floatVar2
+        FloatLiteral: 2.2
+      AssignStmt
+        Variable
+          Identifier: intVar1
+        Variable
+          Identifier: intVar2
+      AssignStmt
+        Variable
+          Identifier: floatVar1
+        Variable
+          Identifier: floatVar2

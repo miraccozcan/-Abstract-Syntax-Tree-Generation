@@ -1,0 +1,289 @@
+/* Test 6.16: Complex index structures with [], (), and expressions as indices */
+
+function testBasicArrayIndex() => void
+{
+  localvar arr : integer[10];
+  
+  /* Literal indices */
+  arr[0] = 1;
+  arr[5] = 2;
+  arr[9] = 3;
+}
+
+function testVariableIndex() => void
+{
+  localvar arr : integer[10];
+  localvar i : integer;
+  
+  i = 3;
+  arr[i] = 100;
+}
+
+function testExpressionIndex() => void
+{
+  localvar arr : integer[20];
+  localvar i : integer;
+  
+  i = 5;
+  
+  /* Addition index */
+  arr[i + 1] = 10;
+  arr[i + 5] = 20;
+  
+  /* Subtraction index */
+  arr[i - 1] = 30;
+  arr[i - 2] = 40;
+  
+  /* Multiplication index */
+  arr[i * 2] = 50;
+  
+  /* Division index */
+  arr[i / 2] = 60;
+}
+
+function testComplexExpressionIndex() => void
+{
+  localvar arr : integer[100];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 5;
+  j = 10;
+  
+  /* Multiple operations */
+  arr[i + j] = 1;
+  arr[i - j + 20] = 2;
+  arr[i * 2 + j] = 3;
+  arr[(i + j) * 2] = 4;
+}
+
+function testNestedArrayIndex() => void
+{
+  localvar arr1 : integer[10];
+  localvar arr2 : integer[10];
+  localvar i : integer;
+  
+  i = 2;
+  arr1[i] = 5;
+  
+  /* Use arr1[i] as index for arr2 */
+  arr2[arr1[i]] = 100;
+}
+
+function testMultiDimensionalArrays() => void
+{
+  localvar matrix : integer[10][10];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 2;
+  j = 3;
+  
+  /* Literal indices */
+  matrix[0][0] = 1;
+  matrix[5][5] = 2;
+  
+  /* Variable indices */
+  matrix[i][j] = 3;
+  
+  /* Expression indices */
+  matrix[i + 1][j] = 4;
+  matrix[i][j + 1] = 5;
+  matrix[i + 1][j + 1] = 6;
+  matrix[i - 1][j - 1] = 7;
+  matrix[i * 2][j * 2] = 8;
+}
+
+function test3DArrays() => void
+{
+  localvar cube : integer[5][5][5];
+  localvar i : integer;
+  localvar j : integer;
+  localvar k : integer;
+  
+  i = 1;
+  j = 2;
+  k = 3;
+  
+  /* Literal indices */
+  cube[0][0][0] = 1;
+  
+  /* Variable indices */
+  cube[i][j][k] = 2;
+  
+  /* Expression indices */
+  cube[i + 1][j + 1][k + 1] = 3;
+  cube[i * 2][j * 2][k * 2] = 4;
+  cube[i + j][j + k][k + i] = 5;
+}
+
+function testArrayIndexWithArrayElement() => void
+{
+  localvar arr : integer[20];
+  localvar indices : integer[5];
+  
+  indices[0] = 10;
+  indices[1] = 15;
+  indices[2] = 5;
+  
+  /* Use array element as index */
+  arr[indices[0]] = 100;
+  arr[indices[1]] = 200;
+  arr[indices[2]] = 300;
+}
+
+function testNestedMatrixIndex() => void
+{
+  localvar matrix1 : integer[10][10];
+  localvar matrix2 : integer[10][10];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 2;
+  j = 3;
+  
+  matrix1[i][j] = 5;
+  
+  /* Use matrix1[i][j] as indices for matrix2 */
+  matrix2[matrix1[i][j]][matrix1[i][j]] = 999;
+}
+
+function testComplexNestedIndex() => void
+{
+  localvar arr : integer[50];
+  localvar indices : integer[10];
+  localvar i : integer;
+  
+  i = 2;
+  indices[i] = 15;
+  
+  /* Deeply nested index expression */
+  arr[indices[i] + 5] = 100;
+  arr[indices[i + 1]] = 200;
+}
+
+function testMatrixWithExpressionIndices() => void
+{
+  localvar matrix : integer[20][20];
+  localvar arr : integer[10];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 3;
+  j = 4;
+  arr[0] = 5;
+  arr[1] = 6;
+  
+  /* Complex index combinations */
+  matrix[i + j][i - j + 10] = 1;
+  matrix[i * 2][j * 2] = 2;
+  matrix[arr[0]][arr[1]] = 3;
+  matrix[arr[i]][arr[j]] = 4;
+  matrix[i + arr[0]][j + arr[1]] = 5;
+}
+
+function testFunctionCallAsIndex() => integer
+{
+  localvar arr : integer[100];
+  localvar val : integer;
+  
+  arr[getIndex()] = 999;
+  val = arr[getIndex()];
+  
+  return(val);
+}
+
+function getIndex() => integer
+{
+  return(42);
+}
+
+function testParenthesizedIndex() => void
+{
+  localvar arr : integer[50];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 5;
+  j = 10;
+  
+  /* Parenthesized expressions as indices */
+  arr[(i + j)] = 1;
+  arr[(i * j)] = 2;
+  arr[((i + j) * 2)] = 3;
+  arr[(i + (j * 2))] = 4;
+}
+
+function testCombinedComplexIndices() => void
+{
+  localvar matrix : integer[30][30];
+  localvar arr : integer[15];
+  localvar i : integer;
+  localvar j : integer;
+  localvar k : integer;
+  
+  i = 2;
+  j = 3;
+  k = 4;
+  
+  arr[i] = 10;
+  arr[j] = 11;
+  
+  /* Extremely complex index expressions */
+  matrix[arr[i] + arr[j]][k * 2] = 1;
+  matrix[arr[i + 1]][arr[j + 1]] = 2;
+  matrix[(i + j) * k][i * j + k] = 3;
+  matrix[arr[arr[i]]][arr[arr[j]]] = 4;
+}
+
+function testLoopWithComplexIndices() => void
+{
+  localvar arr : integer[100];
+  localvar matrix : integer[10][10];
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 0;
+  while (i < 10) {
+    j = 0;
+    while (j < 10) {
+      /* Complex indices in loop */
+      arr[i * 10 + j] = i + j;
+      matrix[i][j] = arr[i * 10 + j];
+      j = j + 1;
+    };
+    i = i + 1;
+  };
+}
+
+function testReadWriteComplexIndex() => void
+{
+  localvar arr : integer[20];
+  localvar i : integer;
+  
+  i = 5;
+  
+  read(arr[i + 2]);
+  write(arr[i * 2]);
+}
+
+function testReturnComplexIndex(arr: integer[50], i: integer, j: integer) => integer
+{
+  return(arr[i * 10 + j]);
+}
+
+function testAssignComplexIndex() => void
+{
+  localvar arr : integer[100];
+  localvar result : integer;
+  localvar i : integer;
+  localvar j : integer;
+  
+  i = 5;
+  j = 10;
+  
+  arr[i + j] = 100;
+  result = arr[i + j];
+  
+  arr[result] = 200;
+}

@@ -1,0 +1,37 @@
+function id lpar rpar arrow void
+lcurbr
+  localvar id colon integer  lsqbr  intlit rsqbr semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id  lsqbr  intlit rsqbr equal intlit semi
+  id lpar id comma intlit rpar semi
+  id lpar id comma intlit rpar semi
+  id lpar id comma intlit rpar semi
+
+  id equal id dot id semi
+  id equal id dot id lpar id rpar semi
+  id equal id lpar id rpar dot id semi
+  id equal id lpar id rpar dot id lpar rpar semi
+  id equal id dot id lsqbr id rsqbr  semi
+  id equal id lsqbr id rsqbr  dot id semi
+  id equal id lsqbr id rsqbr  dot id lsqbr id rsqbr  semi
+  id equal id dot id lsqbr id rsqbr  lsqbr id rsqbr  semi
+  id equal id lsqbr id rsqbr  lsqbr id rsqbr  dot id semi
+  id equal id lsqbr id rsqbr  lsqbr id rsqbr  dot id lsqbr id rsqbr  lsqbr id rsqbr semi
+  id equal id lpar id rpar dot id lsqbr id rsqbr  semi
+  id equal id lpar id rpar dot id lsqbr id rsqbr  lsqbr id rsqbr  semi
+
+  id dot id equal id semi
+  id dot id lsqbr id rsqbr  equal id  semi
+  id lsqbr id rsqbr  dot id  equal id semi
+  id lsqbr id rsqbr  dot id lsqbr id rsqbr  equal id  semi
+  id dot id lsqbr id rsqbr  lsqbr id rsqbr  equal id  semi
+  id lsqbr id rsqbr  lsqbr id rsqbr  dot id  equal id semi
+  id lsqbr id rsqbr  lsqbr id rsqbr  dot id lsqbr id rsqbr  lsqbr id rsqbr equal id  semi
+
+rcurbr
+eof

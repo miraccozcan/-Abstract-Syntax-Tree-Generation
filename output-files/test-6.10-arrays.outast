@@ -1,0 +1,189 @@
+Program
+  ClassDecl
+    Identifier: ArrayDataMembers
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr1D_int
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr1D_float
+        TypeName: float
+        ArrayDim
+          IntLiteral: 20
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr2D_int
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr2D_float
+        TypeName: float
+        ArrayDim
+          IntLiteral: 3
+        ArrayDim
+          IntLiteral: 4
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr3D_int
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 2
+        ArrayDim
+          IntLiteral: 3
+        ArrayDim
+          IntLiteral: 4
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: arr3D_float
+        TypeName: float
+        ArrayDim
+          IntLiteral: 10
+        ArrayDim
+          IntLiteral: 10
+        ArrayDim
+          IntLiteral: 10
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: emptyArr1
+        TypeName: integer
+        ArrayDim
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: emptyArr2
+        TypeName: float
+        ArrayDim
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: largeArr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 1000
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: small
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 1
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: medium
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 50
+    MemberDecl
+      Keyword: public
+      VarDecl
+        Identifier: large
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 500
+  FunctionDef
+    FunctionDecl
+      Identifier: testArrayLocals
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: intArr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 15
+      VarDecl
+        Identifier: floatArr
+        TypeName: float
+        ArrayDim
+          IntLiteral: 25
+      VarDecl
+        Identifier: matrix2D
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+        ArrayDim
+          IntLiteral: 10
+      VarDecl
+        Identifier: matrix3D
+        TypeName: float
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+      VarDecl
+        Identifier: matrix4D
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 2
+        ArrayDim
+          IntLiteral: 2
+        ArrayDim
+          IntLiteral: 2
+        ArrayDim
+          IntLiteral: 2
+      VarDecl
+        Identifier: emptyLocal
+        TypeName: integer
+        ArrayDim
+      VarDecl
+        Identifier: tiny
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 1
+      VarDecl
+        Identifier: small
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 5
+      VarDecl
+        Identifier: medium
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 100
+  FunctionDef
+    FunctionDecl
+      Identifier: arrayParameters
+      Param
+        Identifier: arr
+        TypeName: integer
+        ArrayDim
+          IntLiteral: 10
+      Param
+        Identifier: matrix
+        TypeName: float
+        ArrayDim
+          IntLiteral: 5
+        ArrayDim
+          IntLiteral: 5
+      TypeName: void
+    Block
+      VarDecl
+        Identifier: local
+        TypeName: integer
+      AssignStmt
+        Variable
+          Identifier: local
+        Variable
+          Identifier: arr
+          Index
+            IntLiteral: 0
+  FunctionDef
+    FunctionDecl
+      Identifier: arrayReturn
+      TypeName: integer

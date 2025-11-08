@@ -1,0 +1,484 @@
+1:1 inlinecmt "// ====== struct declarations ====== //" [__SKIP__]
+2:1 class "class" [class]
+2:7 id "POLYNOMIAL" [id]
+2:18 opencubr "{" [lcurbr]
+3:3 public "public" [public]
+3:10 function "function" [function]
+3:19 id "evaluate" [id]
+3:27 colon ":" [colon]
+3:29 openpar "(" [lpar]
+3:30 id "x" [id]
+3:31 colon ":" [colon]
+3:33 float "float" [float]
+3:38 closepar ")" [rpar]
+3:40 returntype "=>" [arrow]
+3:43 float "float" [float]
+3:48 semi ";" [semi]
+4:1 closecubr "}" [rcurbr]
+4:2 semi ";" [semi]
+6:1 class "class" [class]
+6:7 id "LINEAR" [id]
+6:14 isa "isa" [isa]
+6:18 id "POLYNOMIAL" [id]
+6:29 opencubr "{" [lcurbr]
+7:3 private "private" [private]
+7:11 attribute "attribute" [attribute]
+7:21 id "a" [id]
+7:22 colon ":" [colon]
+7:24 float "float" [float]
+7:29 semi ";" [semi]
+8:3 private "private" [private]
+8:11 attribute "attribute" [attribute]
+8:21 id "b" [id]
+8:22 colon ":" [colon]
+8:24 float "float" [float]
+8:29 semi ";" [semi]
+9:3 public "public" [public]
+9:11 constructor "constructor" [constructor]
+9:22 colon ":" [colon]
+9:24 openpar "(" [lpar]
+9:25 id "A" [id]
+9:26 colon ":" [colon]
+9:28 float "float" [float]
+9:33 comma "," [comma]
+9:35 id "B" [id]
+9:36 colon ":" [colon]
+9:38 float "float" [float]
+9:43 closepar ")" [rpar]
+9:44 semi ";" [semi]
+10:3 public "public" [public]
+10:11 function "function" [function]
+10:20 id "evaluate" [id]
+10:28 colon ":" [colon]
+10:30 openpar "(" [lpar]
+10:31 id "x" [id]
+10:32 colon ":" [colon]
+10:34 float "float" [float]
+10:39 closepar ")" [rpar]
+10:41 returntype "=>" [arrow]
+10:44 float "float" [float]
+10:49 semi ";" [semi]
+11:1 closecubr "}" [rcurbr]
+11:2 semi ";" [semi]
+13:1 class "class" [class]
+13:7 id "QUADRATIC" [id]
+13:17 isa "isa" [isa]
+13:21 id "POLYNOMIAL" [id]
+13:32 opencubr "{" [lcurbr]
+14:3 private "private" [private]
+14:11 attribute "attribute" [attribute]
+14:21 id "a" [id]
+14:22 colon ":" [colon]
+14:24 float "float" [float]
+14:29 semi ";" [semi]
+15:3 private "private" [private]
+15:11 attribute "attribute" [attribute]
+15:21 id "b" [id]
+15:22 colon ":" [colon]
+15:24 float "float" [float]
+15:29 semi ";" [semi]
+16:3 private "private" [private]
+16:11 attribute "attribute" [attribute]
+16:21 id "c" [id]
+16:22 colon ":" [colon]
+16:24 float "float" [float]
+16:29 semi ";" [semi]
+17:3 public "public" [public]
+17:11 constructor "constructor" [constructor]
+17:22 colon ":" [colon]
+17:24 openpar "(" [lpar]
+17:25 id "A" [id]
+17:26 colon ":" [colon]
+17:28 float "float" [float]
+17:33 comma "," [comma]
+17:35 id "B" [id]
+17:36 colon ":" [colon]
+17:38 float "float" [float]
+17:43 comma "," [comma]
+17:45 id "C" [id]
+17:46 colon ":" [colon]
+17:48 float "float" [float]
+17:53 closepar ")" [rpar]
+17:54 semi ";" [semi]
+18:3 public "public" [public]
+18:11 function "function" [function]
+18:20 id "evaluate" [id]
+18:28 colon ":" [colon]
+18:30 openpar "(" [lpar]
+18:31 id "x" [id]
+18:32 colon ":" [colon]
+18:34 float "float" [float]
+18:39 closepar ")" [rpar]
+18:41 returntype "=>" [arrow]
+18:44 float "float" [float]
+18:49 semi ";" [semi]
+19:1 closecubr "}" [rcurbr]
+19:2 semi ";" [semi]
+21:1 inlinecmt "// ====== member function implementations ====== //  " [__SKIP__]
+22:1 function "function" [function]
+22:10 id "POLYNOMIAL" [id]
+22:20 scopeop "::" [sr]
+22:22 id "evaluate" [id]
+22:30 openpar "(" [lpar]
+22:31 id "x" [id]
+22:32 colon ":" [colon]
+22:34 float "float" [float]
+22:39 closepar ")" [rpar]
+22:41 returntype "=>" [arrow]
+22:44 float "float" [float]
+23:1 opencubr "{" [lcurbr]
+24:3 return "return" [return]
+24:10 openpar "(" [lpar]
+24:11 intnum "0" [intlit]
+24:12 closepar ")" [rpar]
+24:13 semi ";" [semi]
+25:1 closecubr "}" [rcurbr]
+27:1 function "function" [function]
+27:10 id "QUADRATIC" [id]
+27:19 scopeop "::" [sr]
+27:21 id "evaluate" [id]
+27:29 openpar "(" [lpar]
+27:30 id "x" [id]
+27:31 colon ":" [colon]
+27:33 float "float" [float]
+27:38 closepar ")" [rpar]
+27:40 returntype "=>" [arrow]
+27:43 float "float" [float]
+28:1 opencubr "{" [lcurbr]
+29:3 localvar "localvar" [localvar]
+29:12 id "result" [id]
+29:18 colon ":" [colon]
+29:20 float "float" [float]
+29:25 semi ";" [semi]
+30:3 inlinecmt "//Using Horner's method" [__SKIP__]
+31:3 id "result" [id]
+31:10 assign "=" [equal]
+31:12 id "a" [id]
+31:13 semi ";" [semi]
+32:3 id "result" [id]
+32:10 assign "=" [equal]
+32:12 id "result" [id]
+32:19 mult "*" [mult]
+32:21 id "x" [id]
+32:23 plus "+" [plus]
+32:25 id "b" [id]
+32:26 semi ";" [semi]
+33:3 id "result" [id]
+33:10 assign "=" [equal]
+33:12 id "result" [id]
+33:19 mult "*" [mult]
+33:21 id "x" [id]
+33:23 plus "+" [plus]
+33:25 id "c" [id]
+33:26 semi ";" [semi]
+34:3 return "return" [return]
+34:10 openpar "(" [lpar]
+34:11 id "result" [id]
+34:17 closepar ")" [rpar]
+34:18 semi ";" [semi]
+35:1 closecubr "}" [rcurbr]
+37:1 function "function" [function]
+37:10 id "QUADRATIC" [id]
+37:19 scopeop "::" [sr]
+37:21 constructor "constructor" [constructor]
+37:32 openpar "(" [lpar]
+37:33 id "A" [id]
+37:34 colon ":" [colon]
+37:36 float "float" [float]
+37:41 comma "," [comma]
+37:43 id "B" [id]
+37:44 colon ":" [colon]
+37:46 float "float" [float]
+37:51 comma "," [comma]
+37:53 id "C" [id]
+37:54 colon ":" [colon]
+37:56 float "float" [float]
+37:61 closepar ")" [rpar]
+38:1 opencubr "{" [lcurbr]
+39:3 self "self" [id]
+39:7 dot "." [dot]
+39:8 id "a" [id]
+39:10 assign "=" [equal]
+39:12 id "A" [id]
+39:13 semi ";" [semi]
+40:3 self "self" [id]
+40:7 dot "." [dot]
+40:8 id "b" [id]
+40:10 assign "=" [equal]
+40:12 id "B" [id]
+40:13 semi ";" [semi]
+41:3 self "self" [id]
+41:7 dot "." [dot]
+41:8 id "c" [id]
+41:10 assign "=" [equal]
+41:12 id "C" [id]
+41:13 semi ";" [semi]
+42:1 closecubr "}" [rcurbr]
+44:1 function "function" [function]
+44:10 id "LINEAR" [id]
+44:16 scopeop "::" [sr]
+44:18 constructor "constructor" [constructor]
+44:29 openpar "(" [lpar]
+44:30 id "A" [id]
+44:31 colon ":" [colon]
+44:33 float "float" [float]
+44:38 comma "," [comma]
+44:40 id "B" [id]
+44:41 colon ":" [colon]
+44:43 float "float" [float]
+44:48 closepar ")" [rpar]
+45:1 opencubr "{" [lcurbr]
+46:3 self "self" [id]
+46:7 dot "." [dot]
+46:8 id "a" [id]
+46:10 assign "=" [equal]
+46:12 id "A" [id]
+46:13 semi ";" [semi]
+47:3 self "self" [id]
+47:7 dot "." [dot]
+47:8 id "b" [id]
+47:10 assign "=" [equal]
+47:12 id "B" [id]
+47:13 semi ";" [semi]
+48:1 closecubr "}" [rcurbr]
+50:1 function "function" [function]
+50:10 id "LINEAR" [id]
+50:16 scopeop "::" [sr]
+50:18 id "evaluate" [id]
+50:26 openpar "(" [lpar]
+50:27 id "x" [id]
+50:28 colon ":" [colon]
+50:30 float "float" [float]
+50:35 closepar ")" [rpar]
+50:37 returntype "=>" [arrow]
+50:40 float "float" [float]
+51:1 opencubr "{" [lcurbr]
+52:3 localvar "localvar" [localvar]
+52:12 id "result" [id]
+52:18 colon ":" [colon]
+52:20 float "float" [float]
+52:25 semi ";" [semi]
+53:3 id "result" [id]
+53:10 assign "=" [equal]
+53:12 floatnum "0.0" [floatlit]
+53:15 semi ";" [semi]
+54:3 id "result" [id]
+54:10 assign "=" [equal]
+54:12 id "a" [id]
+54:14 mult "*" [mult]
+54:16 id "x" [id]
+54:18 plus "+" [plus]
+54:20 id "b" [id]
+54:21 semi ";" [semi]
+55:3 return "return" [return]
+55:10 openpar "(" [lpar]
+55:11 id "result" [id]
+55:17 closepar ")" [rpar]
+55:18 semi ";" [semi]
+56:1 closecubr "}" [rcurbr]
+58:1 inlinecmt "// ====== main ====== //" [__SKIP__]
+59:1 function "function" [function]
+59:10 id "main" [id]
+59:14 openpar "(" [lpar]
+59:15 closepar ")" [rpar]
+59:17 returntype "=>" [arrow]
+59:20 void "void" [void]
+60:1 opencubr "{" [lcurbr]
+61:3 localvar "localvar" [localvar]
+61:12 id "f1" [id]
+61:14 colon ":" [colon]
+61:16 id "LINEAR" [id]
+61:22 openpar "(" [lpar]
+61:23 intnum "2" [intlit]
+61:24 comma "," [comma]
+61:26 floatnum "3.5" [floatlit]
+61:29 closepar ")" [rpar]
+61:30 semi ";" [semi]
+62:3 localvar "localvar" [localvar]
+62:12 id "f2" [id]
+62:14 colon ":" [colon]
+62:16 id "QUADRATIC" [id]
+62:25 openpar "(" [lpar]
+62:26 minus "-" [minus]
+62:27 floatnum "2.0" [floatlit]
+62:30 comma "," [comma]
+62:32 floatnum "1.0" [floatlit]
+62:35 comma "," [comma]
+62:37 floatnum "0.0" [floatlit]
+62:40 closepar ")" [rpar]
+62:41 semi ";" [semi]
+63:3 localvar "localvar" [localvar]
+63:12 id "counter" [id]
+63:19 colon ":" [colon]
+63:21 integer "integer" [integer]
+63:28 semi ";" [semi]
+65:3 id "counter" [id]
+65:11 assign "=" [equal]
+65:13 intnum "1" [intlit]
+65:14 semi ";" [semi]
+67:3 while "while" [while]
+67:8 openpar "(" [lpar]
+67:9 id "counter" [id]
+67:17 leq "<=" [leq]
+67:20 intnum "10" [intlit]
+67:22 closepar ")" [rpar]
+68:3 opencubr "{" [lcurbr]
+69:5 write "write" [write]
+69:10 openpar "(" [lpar]
+69:11 id "counter" [id]
+69:18 closepar ")" [rpar]
+69:19 semi ";" [semi]
+70:5 write "write" [write]
+70:10 openpar "(" [lpar]
+70:11 id "f1" [id]
+70:13 dot "." [dot]
+70:14 id "evaluate" [id]
+70:22 openpar "(" [lpar]
+70:23 id "counter" [id]
+70:30 closepar ")" [rpar]
+70:31 closepar ")" [rpar]
+70:32 semi ";" [semi]
+71:5 write "write" [write]
+71:10 openpar "(" [lpar]
+71:11 id "f2" [id]
+71:13 dot "." [dot]
+71:14 id "evaluate" [id]
+71:22 openpar "(" [lpar]
+71:23 id "counter" [id]
+71:30 closepar ")" [rpar]
+71:31 closepar ")" [rpar]
+71:32 semi ";" [semi]
+72:3 closecubr "}" [rcurbr]
+72:4 semi ";" [semi]
+73:1 closecubr "}" [rcurbr]
+74:1 blockcmt "/*
+    classes
+    --------------------------------------
+| | no class declaration
+| | class declaration
+|X| multiple class declarations
+|X| no data member declaration
+|X| data member declaration
+|X| multiple data member declaration
+| | no member function declaration
+|X| member function declaration
+|X| multiple member function declaration
+| | no member
+|X| no inherited class
+|X| one inherited class
+| | multiple inherited classes
+|X| private member specifier
+|X| public member specifier
+
+    functions: definitions
+    --------------------------------------
+| | no main function definition
+|X| main function definition
+|X| no free function definition
+| | free function definition
+| | multiple free function definitions
+| | no member function definition
+|X| member function definition
+|X| multiple member function definitions
+| | return type: void
+| | return type: integer
+|X| return type: float
+|X| return type: id
+| | return type: array (not allowed)
+
+    functions: formal parameters
+    --------------------------------------
+| | type: integer
+|X| type: float
+| | type: id
+| | type: 1-dim array 
+| | type: n-dim array
+| | type: array (with size)
+| | type: array (without size)
+
+    functions: calls
+    --------------------------------------
+| | free function call
+|X| member function call
+| | parameters:0
+|X| parameters:1
+|X| parameters:n
+| | array parameter - 1-dim
+| | array parameter - n-dim
+| | array parameter - with size
+| | array parameter - without size
+| | function call as statement
+|X| function call as expression factor
+| | expression as parameter
+
+    variable declaration
+    --------------------------------------
+| | type: integer
+| | type: float
+| | type: string
+|X| type: id
+| | type: 1-dim array 
+| | type: n-dim array
+| | type: array (with size)
+| | type: array (without size)
+
+    function body: local variable declarations
+    --------------------------------------
+| | no local variable declarations
+|X| local variable declarations
+| | intertwined statements and variable declarations
+
+    function body: statements
+    --------------------------------------
+| | no statement
+| | 1 statement
+|X| n statements
+| | if statement
+| | if: empty then or else blocks
+| | if: 1-statement then or else blocks
+| | if: n-statements then or else blocks
+|X| while statement
+| | while: empty block
+| | while: 1-statement block
+|X| while: n-statement block
+| | read(<variable>) statement
+|X| write(<expr>) statement
+|X| return(<expr>) statement
+|X| assignment statement
+
+    variable + idnest
+    --------------------------------------
+|X| id
+|X| id.id
+|X| id.id(id)
+| | id(id).id
+| | id(id).id()
+| | id.id[id]
+| | id[id].id
+| | id[id].id[id]
+| | id.id[id][id]
+| | id[id][id].id
+| | id[id][id].id[id][id]
+| | id(id).id[id]
+| | id(id).id[id][id]
+| | expression as array index
+
+    expressions
+    --------------------------------------
+| | single variable
+| | involving addop
+| | involving multop
+| | involving relop
+|X| involving addop + multop
+| | involving multop + relop
+| | involving addop + multop + relop
+| | involving parentheses
+| | involving nested parenhteses
+| | involving not
+| | involving sign
+| | involving literals
+|X| involving variable + idnest
+|X| involving function calls
+| | involving all the above in one expression
+*/" [__SKIP__]
+203:3 eof [$]

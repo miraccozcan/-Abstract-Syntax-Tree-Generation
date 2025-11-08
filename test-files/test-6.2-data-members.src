@@ -1,0 +1,35 @@
+/* Test 6.2: Data member declarations - All variations */
+
+class DataMemberVariations {
+  /* Simple integer member */
+  public attribute intMember : integer;
+  
+  /* Simple float member */
+  public attribute floatMember : float;
+  
+  /* Single-dimensional array */
+  public attribute arr1D : integer[10];
+  
+  /* Multi-dimensional array */
+  public attribute arr2D : integer[5][5];
+  public attribute arr3D : float[3][4][5];
+  
+  /* Empty array */
+  public attribute emptyArr : integer[];
+  
+  /* Mixed visibility */
+  private attribute privateInt : integer;
+  public attribute publicFloat : float;
+  
+  /* Multiple members of same type */
+  public attribute x : integer;
+  public attribute y : integer;
+  public attribute z : integer;
+};
+
+class OnlyDataMembers {
+  public attribute a : integer;
+  public attribute b : float;
+  private attribute c : integer[20];
+  private attribute matrix : float[10][10];
+};
