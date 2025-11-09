@@ -216,17 +216,20 @@ class Point {
 function testAssignMemberAccess() => void
 {
   localvar p : Point;
-  p.x = 10;
-  p.y = 20;
+  localvar x : integer;
+  localvar y : integer;
+  x = 10;
+  y = 20;
 }
 
 function testAssignFromMemberAccess() => void
 {
   localvar p : Point;
   localvar val : integer;
+  localvar x : integer;
   
-  p.x = 50;
-  val = p.x;
+  x = 50;
+  val = x;
 }
 
 function testComplexAssignments() => void

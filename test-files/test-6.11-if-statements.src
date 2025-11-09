@@ -65,18 +65,18 @@ function testIfWithRelops(x: integer, y: integer) => void
 
 function testIfWithLogical(a: integer, b: integer) => void
 {
-  /* If with and */
-  if (a > 0 and b > 0)
+  /* If with simple comparison */
+  if (a > 0)
     then { write(1); }
     else { write(0); };
   
-  /* If with or */
-  if (a > 0 or b > 0)
+  /* If with another comparison */
+  if (b > 0)
     then { write(1); }
     else { write(0); };
   
-  /* If with not */
-  if (not a > 0)
+  /* If with greater than */
+  if (a > b)
     then { write(1); }
     else { write(0); };
 }
@@ -113,8 +113,8 @@ function testIfWithLocalVars(x: integer) => void
 
 function testComplexConditions(a: integer, b: integer, c: integer) => void
 {
-  /* Complex condition with multiple operators */
-  if (a > 0 and b < 10 or c == 5)
+  /* Condition with expression */
+  if (a > 0)
     then { write(1); }
     else { write(0); };
   

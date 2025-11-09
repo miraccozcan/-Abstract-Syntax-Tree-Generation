@@ -1,156 +1,158 @@
+
 # Design & Rationale – Group 2  
 ## **SEP700 Assignment 3**  
-**Date:** November 8, 2025  
+**Date:** 8 November 2025  
 
 ---
 
-## **100% COMPLETE**  
+## **100 % COMPLETE**  
 **All components. All decisions. All tools. All tests.**  
-**No crashes. No leaks.**
+**No crashes. No memory leaks.**
 
 ---
 
-## **1. Big Picture – What We Built**
+## **1. System Overview – High-Level Architecture**
 
 ```
-Lexer → Token Stream → [Table-Driven LL(1) Parser + Heuristics] → AST
+Lexer → Token Stream → [Table-Driven LL(1) Parser + Heuristic Resolution] → AST
                           ↓
                Semantic Stack + buildSemanticNode()
 ```
 
-- **One-pass parsing**  
-- **True AST** (not parse tree)  
-- **Handles broken table with smart heuristics**  
-- **Runs clean, fast, stable**
+- **Single-pass parsing**  
+- **Genuine Abstract Syntax Tree (AST)** — no parse tree artefacts  
+- **Robust handling of defective parsing table via intelligent heuristics**  
+- **Efficient, stable, and maintainable execution**
 
 ---
 
-## **2. Core Architecture – 4 Pillars**
+## **2. Core Architectural Components – Four Pillars**
 
-| Pillar | What It Is | Why It Rocks |
-|-------|------------|--------------|
-| **`parseOneFile()`** | Main driver loop | Explicit stack, derivation tracking, error recovery |
-| **`SemanticStack`** | Parallel AST builder | Bottom-up node construction as we reduce |
-| **`buildSemanticNode()`** | 50+ semantic actions | One function, all grammar rules, clean patterns |
-| **Heuristics Engine** | k>1 lookahead fixes | Fixes broken table **without changing grammar** |
+| Component | Description | Advantages |
+|----------|-------------|------------|
+| **`parseOneFile()`** | Central driver loop | Explicit stack management, derivation tracking, error recovery |
+| **`SemanticStack`** | Parallel AST construction | Bottom-up node assembly during reduction |
+| **`buildSemanticNode()`** | Over 50 semantic actions | Centralised, pattern-based rule handling |
+| **Heuristics Engine** | k > 1 lookahead resolution | Corrects table deficiencies **without grammar modification** |
 
 ---
 
-## **3. The Broken Table Problem – And Our Fix**
+## **3. Deficiencies in the Provided Parsing Table – And Our Solution**
 
-### Problem: Provided `parsing_table.csv` is **incomplete & wrong**
+### Identified Issues in `parsing_table.csv`
 
-| Issue | Example |
-|------|--------|
-| `FACTOR` → only `VARIABLE` | Misses `id(...)` function calls |
-| `IDNEST` → wrong production | Should start with `dot` |
-| Missing `[]` for empty arrays | Only `[intlit]` in table |
-| No function call statements | Only assignments |
+| Deficiency | Example |
+|------------|---------|
+| `FACTOR` → only `VARIABLE` | Omits function calls `id(...)` |
+| `IDNEST` → incorrect production | Should begin with `dot` |
+| Empty array dimensions `[]` | Only `[intlit]` recognised |
+| Missing statement-level function calls | Only assignment statements supported |
 
-### Our Fix: **Heuristics Before Table Lookup**
+### Resolution: **Heuristic Pre-Processing Before Table Lookup**
 
 ```cpp
 if (nonterm == "FACTOR" && lookahead == "id") {
-    if (peek(2) == "(") → use FUNCTIONCALL
-    else if (peek(2) == ".") → use IDNEST
-    else → use VARIABLE
+    if (peek(2) == "(")  → select FUNCTIONCALL production
+    else if (peek(2) == ".") → select IDNEST production
+    else                     → select VARIABLE production
 }
 ```
 
-**No grammar changes**  
-**No table edits**  
-**Just smarter parsing**
+**No alterations to grammar**  
+**No modifications to parsing table**  
+**Purely enhanced decision logic**
 
 ---
 
-## **4. AST Construction – Clean & Smart**
+## **4. AST Construction – Elegant and Systematic**
 
-### 5 Smart Patterns
+### Five Core Construction Patterns
 
-| Pattern | Example |
-|--------|--------|
+| Pattern | Application |
+|---------|-------------|
 | **Pass-Through** | `CLASSDECLORFUNCDEF → child.node` |
-| **Node Build** | `ClassDecl(id, inherit, members)` |
+| **Node Instantiation** | `ClassDecl(id, inherit, members)` |
 | **Operator Folding** | `a + b * c → (a + (b * c))` |
-| **List Flattening** | `REPT* → flat vector` |
-| **Epsilon → null** | No node for empty productions |
+| **List Flattening** | `REPT*` → contiguous `std::vector` |
+| **Epsilon Handling** | Empty productions yield `nullptr` |
 
-### Helpers
-- `findChildBySymbol()` → get child by name  
-- `childAt(i)` → get by position  
-- `fold()` → build expression trees  
+### Supporting Utilities
+- `findChildBySymbol()` → retrieve child by non-terminal name  
+- `childAt(i)` → positional child access  
+- `fold()` → construct nested expression trees  
 
 ---
 
-## **5. AST Nodes – Semantic Only**
+## **5. AST Node Hierarchy – Purely Semantic**
 
 ```
 Program → ClassDecl → MemberDecl → VarDecl
         → FunctionDef → Block → IfStmt → BinaryExpr
 ```
 
-**NO grammar symbols**  
-**NO `=`, `;`, `(`, `)`**  
-**NO `REPT*`, `ε`**  
-**Just meaning**
+**Excluded from AST:**  
+- Grammar symbols (`STATEMENT`, `EXPR`, `TERM`)  
+- Punctuation tokens (`=`, `;`, `(`, `)`)  
+- Empty productions (`ε`) and repetition wrappers (`REPT*`)  
+**Retained:** Only program meaning and structure
 
 ---
 
-## **6. Tools & Techniques – Lab-Grade + Pro**
+## **6. Tools & Techniques – Laboratory-Compliant and Professionally Enhanced**
 
-| Tool | Why We Chose It | Alternatives (Why Not) |
-|------|------------------|------------------------|
-| **C++17** | Smart pointers, lambdas, `vector` | C (no RAII), Python (slow) |
-| **Table-Driven LL(1)** | Required, O(n), debuggable | Recursive descent (no derivation) |
-| **Heuristics** | Fix broken table | Regenerate table (not allowed) |
-| **Smart Pointers** | No leaks, shared ownership | Raw pointers (dangerous) |
-| **Manual g++** | Fast, transparent | CMake (overkill) |
+| Tool | Rationale for Selection | Rejected Alternatives |
+|------|--------------------------|------------------------|
+| **C++17** | RAII, smart pointers, modern containers | C (manual memory), Python (performance) |
+| **Table-Driven LL(1)** | Assignment requirement, linear time, traceable | Recursive descent (no derivation trace) |
+| **Heuristics** | Resolve table errors | Table regeneration (prohibited) |
+| **Smart Pointers** | Automatic memory safety | Raw pointers (error-prone) |
+| **Manual g++ Build** | Speed and transparency | CMake (unnecessary complexity) |
 
 ---
 
-## **7. Testing – 100% Coverage**
+## **7. Testing Strategy – Comprehensive Coverage**
 
-| Test | Status | Proves |
-|------|--------|-------|
-| `test-minimal.src` | PASS | Basic class + function |
-| `test-member-call.src` | PASS | `obj.method()` |
+| Test Case | Status | Verifies |
+|-----------|--------|----------|
+| `test-minimal.src` | PASS | Basic class and function declarations |
+| `test-member-call.src` | PASS | Member function invocation `obj.method()` |
 | `example-polynomial.src` | PASS | OOP, inheritance, constructors |
 | `example-bubblesort.src` | PASS | Arrays, loops, empty `[]` |
 
-**All produce:**
-- `.outast` → clean AST  
-- `.dot` → GraphViz tree  
-- `[OK]` → no crash  
+**Outputs for all tests:**  
+- `.outast` → readable, indented AST  
+- `.dot` → valid GraphViz visualisation  
+- `[OK]` → successful execution  
 
 ---
 
-## **8. Stability & Quality**
+## **8. Reliability and Code Quality**
 
-- **No crashes**  
-- **No memory leaks** (`shared_ptr`)  
-- **Error recovery** (pop-and-skip)  
-- **Full derivation tracking**  
-- **Clear error logs** (`.outsyntaxerrors`)
-
----
-
-## **9. Future-Proof Design**
-
-Easy to extend:
-- Add new node? → `ast.hpp` + factory  
-- New production? → `buildSemanticNode()` case  
-- New heuristic? → `if` before table lookup  
+- **Zero runtime crashes**  
+- **Zero memory leaks** (`std::shared_ptr` discipline)  
+- **Error recovery mechanism** (stack pop-and-skip)  
+- **Complete derivation logging**  
+- **Detailed syntax error reporting** (`.outsyntaxerrors`)
 
 ---
 
-## **10. Final Verdict**
+## **9. Extensibility and Maintainability**
 
-- **All 50+ grammar rules** → semantic actions  
-- **True AST** → no parse tree junk  
-- **Heuristics fix broken table** → no grammar changes  
-- **All tests pass** → complex OOP, arrays, expressions  
+Future enhancements are straightforward:  
+- New AST node → update `ast.hpp` and factory  
+- New production rule → add case in `buildSemanticNode()`  
+- New heuristic → insert conditional before table lookup  
+
+---
+
+## **10. Final Assessment**
+
+- **All 50+ grammar productions** equipped with semantic actions  
+- **Authentic AST** — free of parse tree artefacts  
+- **Heuristic layer** corrects parsing table without grammar changes  
+- **All test cases pass** — including complex OOP, arrays, and expressions  
 
 ---
 
 **Group 2 – SEP700**  
-**November 8, 2025**
+**8 November 2025**

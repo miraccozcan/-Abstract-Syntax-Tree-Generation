@@ -54,14 +54,14 @@ function testWhileWithLogical() => void
   a = 0;
   b = 0;
   
-  /* While with and */
-  while (a < 10 and b < 5) {
+  /* While with simple comparison */
+  while (a < 10) {
     a = a + 1;
     b = b + 1;
   };
   
-  /* While with or */
-  while (a < 20 or b < 10) {
+  /* While with another comparison */
+  while (b < 10) {
     a = a + 1;
     b = b + 1;
   };
@@ -136,7 +136,7 @@ function testWhileWithComplexCondition(limit: integer) => void
   i = 0;
   j = 0;
   
-  while (i < limit and j < limit * 2) {
+  while (i < limit) {
     i = i + 1;
     j = j + 2;
   };

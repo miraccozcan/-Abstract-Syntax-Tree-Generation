@@ -1,409 +1,295 @@
-# Assignment 3 - Abstract Syntax Tree Generation
-## Group 2 - README
+# Assignment 3 – Abstract Syntax Tree Generation  
+## Group 2 – README
 
 **Group Number:** 2  
-**Group Members:**
-- Mirac Ozcan (mozkan1@myseneca.ca)
-- Sidhant Sharma (ssharma471@myseneca.ca)
-- Arvin (aarmand1@myseneca.ca)
-- Paschal (Pibeh@myseneca.ca)
+**Group Members:**  
+- Mirac Ozcan (mozkan1@myseneca.ca)  
+- Sidhant Sharma (ssharma471@myseneca.ca)  
+- Arvin (aarmand1@myseneca.ca)  
+- Paschal (pibeh@myseneca.ca)  
 
-**Date Completed:** November 8, 2025
+**Date Completed:** 8 November 2025  
 
-**Authenticity Declaration:**
-We declare this submission is the result of our group work and has not been shared with any other groups/students or 3rd party content provider. This submitted piece of work is entirely of our own creation.
-
----
-
-## Table of Contents
-1. [Overview](#overview)
-2. [Prerequisites](#prerequisites)
-3. [Compilation Instructions](#compilation-instructions)
-4. [Execution Instructions](#execution-instructions)
-5. [File Structure](#file-structure)
-6. [Test Files](#test-files)
-7. [Output Files](#output-files)
-8. [Troubleshooting](#troubleshooting)
+**Authenticity Declaration:**  
+We declare that this submission is the result of our own group work and has not been shared with any other groups, students, or third-party content providers. This work is entirely of our own creation.
 
 ---
 
-## Overview
-
-This assignment implements an Abstract Syntax Tree (AST) generator integrated into a table-driven LL(1) parser with syntax-directed translation. The parser reads source files written in the course project language and generates:
-
-- **AST text representation** (.outast files)
-- **AST DOT/GraphViz representation** (.dot files)
-- **Token stream** (.outtokens files)
-- **Derivation trace** (.outderivation files)
-
-The implementation handles all language features including classes, inheritance, functions, statements, expressions, and complex nested structures.
+## Table of Contents  
+1. [Overview](#overview)  
+2. [Prerequisites](#prerequisites)  
+3. [Compilation Instructions](#compilation-instructions)  
+4. [Execution Instructions](#execution-instructions)  
+5. [File Structure](#file-structure)  
+6. [Test Files](#test-files)  
+7. [Output Files](#output-files)  
+8. [Troubleshooting](#troubleshooting)  
 
 ---
 
-## Prerequisites
+## Overview  
 
-### Required Tools
-- **C++17 Compiler**: g++ 7.0+ or clang++ 5.0+
-- **Make** (optional, for makefile-based build)
-- **Git** (for cloning/managing repository)
+This assignment implements a **complete Abstract Syntax Tree (AST) generator** integrated with a **table-driven LL(1) parser** using **syntax-directed translation**.  
 
-### Environment Compatibility
-- ✅ **GitHub Codespaces** (primary testing environment)
-- ✅ **Linux** (Ubuntu 20.04+, Fedora, etc.)
-- ✅ **macOS** (10.14+)
-- ✅ **Windows** (WSL2, MinGW, or MSVC)
+The system processes source files written in the course-defined language and produces:  
 
-### Verification
-Check that you have a compatible C++ compiler:
+- **`.outast`** – human-readable, indented AST  
+- **`.dot`** – GraphViz-compatible graph for visualization  
+- **`.outtokens`** – full token stream  
+- **`.outderivation`** – step-by-step parse derivation  
+- **`.outsyntaxerrors`** – detailed syntax diagnostics  
+
+The implementation supports **all required language constructs**, including:  
+- Class declarations with inheritance and visibility  
+- Member and free functions (including constructors)  
+- Local variable declarations  
+- Multi-dimensional arrays (fixed and dynamic)  
+- Control flow (`if`, `while`, `read`, `write`, `return`)  
+- Arithmetic and relational expressions with correct precedence  
+- Complex nested indexing and function calls  
+
+---
+
+## Prerequisites  
+
+### Required Tools  
+- **C++17 Compiler**: `g++` 7.0+ or `clang++` 5.0+  
+- **Make** (optional, for automated build)  
+- **Git** (for repository management)  
+
+### Environment Compatibility  
+- GitHub Codespaces (primary testing environment)  
+- Linux (Ubuntu 20.04+, Fedora, etc.)  
+- macOS (10.14+)  
+- Windows (WSL2, MinGW, or MSVC)  
+
+### Verification  
 ```bash
-g++ --version    # Should show version 7.0 or higher
+g++ --version    # Must be ≥ 7.0
 # OR
 clang++ --version
 ```
 
 ---
 
-## Compilation Instructions
+## Compilation Instructions  
 
-### Option 1: Using the Makefile (Recommended)
-
-If a `Makefile` is provided:
+### Option 1: Using Makefile (Recommended)  
 
 ```bash
-# Navigate to the assignment directory
 cd Abstract-Syntax-Tree-Generation
-
-# Clean previous builds
 make clean
-
-# Compile the parser
 make
+```
 
-# OR compile with specific compiler
+*Optional compiler selection:*  
+```bash
 make CXX=g++
 make CXX=clang++
 ```
 
-### Option 2: Manual Compilation
-
-If compiling manually:
+### Option 2: Manual Compilation  
 
 ```bash
-# Navigate to the assignment directory
 cd Abstract-Syntax-Tree-Generation
 
-# Compile all source files
 g++ -std=c++17 -Wall -Wextra -O2 \
     parserdriver.cpp \
     ast.cpp \
     ast_factory.cpp \
     semantic_stack.cpp \
     include/lexer.cpp \
-    -o parser
-
-# OR with all features
-g++ -std=c++17 -Wall -Wextra -O2 -g \
     -I./include \
-    parserdriver.cpp ast.cpp ast_factory.cpp semantic_stack.cpp include/lexer.cpp \
     -o parser
 ```
 
-### Option 3: GitHub Codespaces
+*With debug symbols:*  
+```bash
+g++ -std=c++17 -Wall -Wextra -O2 -g ...
+```
+
+### Option 3: GitHub Codespaces  
 
 ```bash
-# In Codespaces terminal
 cd Abstract-Syntax-Tree-Generation
-
-# Use provided build script
 chmod +x build.sh
 ./build.sh
-
-# OR compile manually
-g++ -std=c++17 -Wall parserdriver.cpp ast.cpp ast_factory.cpp semantic_stack.cpp include/lexer.cpp -o parser
 ```
 
-### Successful Compilation
-
-You should see the executable `parser` (or `parser.exe` on Windows) created in the Abstract-Syntax-Tree-Generation directory with no error messages.
+**Success Indicator:** Executable `parser` created with no errors.
 
 ---
 
-## Execution Instructions
+## Execution Instructions  
 
-### Basic Usage
+### Basic Command  
 
 ```bash
 ./parser <parsing_table.csv> <source_file.src>
 ```
 
-### Running Individual Test Files
+### Example Runs  
 
 ```bash
-# Parse a specific test file
 ./parser grammar/parsing_table.csv test-checklist-comprehensive.src
-
-# Parse provided examples
 ./parser grammar/parsing_table.csv source-files/example-polynomial.src
 ./parser grammar/parsing_table.csv source-files/example-bubblesort.src
 ```
 
-### Running All Test Files (Batch Processing)
+### Batch Processing All Tests  
 
 ```bash
-# Run all test files in current directory
 for file in test-*.src; do
-    echo "Processing $file..."
-    ./parser grammar/parsing_table.csv "$file"
-done
-
-# Run all provided examples
-for file in source-files/*.src; do
-    echo "Processing $file..."
+    echo "Parsing $file..."
     ./parser grammar/parsing_table.csv "$file"
 done
 ```
 
-### Using the Driver Script
+### Success Output  
 
-If an `ASTdriver` executable or script is provided:
-
-```bash
-# Make executable (if needed)
-chmod +x ASTdriver
-
-# Run all tests
-./ASTdriver
 ```
-
-### Expected Output
-
-For each successfully parsed source file `example.src`, the following files are generated:
-
-1. **example.outast** - Text representation of the AST
-2. **example.dot** - GraphViz DOT format for visualization
-3. **example.outtokens** - Token stream
-4. **example.outderivation** - Derivation trace
-5. **example.outsyntaxerrors** - Syntax error log (if any errors)
-
-Success message:
-```
-[OK]   "path/to/file.src" -> "path/to/file.outast", "path/to/file.dot"
+[OK]   "test-checklist-comprehensive.src" -> "test-checklist-comprehensive.outast", ".dot"
 ```
 
 ---
 
-## File Structure
+## File Structure  
 
 ```
 Abstract-Syntax-Tree-Generation/
-├── parser                          # Executable (generated after compilation)
-├── parserdriver.cpp                # Main parser implementation (1957 lines)
-├── ast.hpp                         # AST node class definitions
-├── ast.cpp                         # AST node implementations
-├── ast_factory.hpp                 # AST node factory
-├── ast_factory.cpp                 # Factory implementations
-├── semantic_stack.hpp              # Semantic stack for AST building
-├── semantic_stack.cpp              # Stack implementations
+├── parser                          # Executable (post-compilation)
+├── parserdriver.cpp                # Core parser + semantic actions (1957 lines)
+├── ast.hpp / ast.cpp               # AST node definitions and logic
+├── ast_factory.hpp / ast_factory.cpp # Node creation factory
+├── semantic_stack.hpp / semantic_stack.cpp # Bottom-up AST construction
 ├── include/
-│   ├── lexer.hpp                   # Lexer header
-│   └── lexer.cpp                   # Lexer implementation
+│   ├── lexer.hpp
+│   └── lexer.cpp                   # Tokenisation
 ├── grammar/
 │   ├── parsing_table.csv           # LL(1) parsing table
-│   └── LL1grammar.grm              # Grammar specification
+│   └── LL1grammar.grm              # Reference grammar
 ├── source-files/
-│   ├── example-polynomial.src      # Provided test file
-│   └── example-bubblesort.src      # Provided test file
-├── test-checklist-comprehensive.src # Main comprehensive test
-├── test-6.*.src                    # Individual feature tests
-├── ATTRIBUTE_GRAMMAR_SPECIFICATION.md  # Section 1 of report
-├── DESIGN_RATIONALE.md             # Section 2 of report
-├── CHECKLIST_VERIFICATION.md       # Complete evidence for all requirements
-├── TEST_COVERAGE_DOCUMENTATION.md  # Test coverage proof
-├── AST_VS_PARSETREE.md             # AST correctness proof
-└── group_XX_assign_3_README.md     # This file
+│   ├── example-polynomial.src
+│   └── example-bubblesort.src
+├── test-checklist-comprehensive.src
+├── test-6.*.src                    # Feature-specific tests
+├── ATTRIBUTE_GRAMMAR_SPECIFICATION.md
+├── DESIGN_RATIONALE.md
+├── CHECKLIST_VERIFICATION.md
+├── TEST_COVERAGE_DOCUMENTATION.md
+├── AST_VS_PARSETREE.md
+└── group_2_assign_3_README.md      # This file
 ```
 
 ---
 
-## Test Files
+## Test Files  
 
-### Comprehensive Test
-- **test-checklist-comprehensive.src** - Covers ALL 43 requirements in a single file
+### Comprehensive Test  
+- **`test-checklist-comprehensive.src`** – **189 lines**, covers **all 43 requirements**  
 
-### Feature-Specific Tests
-- test-6.1-class-declarations.src - Class declarations
-- test-6.2-data-members.src - Data member declarations
-- test-6.4-inheritance.src - Inheritance structures
-- test-6.5-visibility.src - Public/private visibility
-- test-6.7-member-function-defs.src - Function definitions
-- test-6.9-int-float.src - Integer and float types
-- test-6.16-complex-indices.src - Complex array indexing
-- (Additional test files for specific features)
+### Targeted Tests  
+| File | Focus |
+|------|-------|
+| `test-6.1-class-declarations.src` | Class syntax |
+| `test-6.2-data-members.src` | Visibility + arrays |
+| `test-6.4-inheritance.src` | Multi-level inheritance |
+| `test-6.5-visibility.src` | `public` / `private` scoping |
+| `test-6.7-member-function-defs.src` | Constructors |
+| `test-6.9-int-float.src` | Type system |
+| `test-6.16-complex-indices.src` | Nested indexing |
 
-### Provided Examples
-- source-files/example-polynomial.src - Polynomial evaluation program
-- source-files/example-bubblesort.src - Bubble sort implementation
+### Real-World Examples  
+- `example-polynomial.src` – OOP, inheritance, constructors  
+- `example-bubblesort.src` – arrays, loops, function calls  
 
-All test files successfully parse and generate correct AST output.
+**All tests pass** with correct AST output.  
+**Note:** Inputs adjusted to grammar constraints (no member access, logical ops, strings, array return types). See `TEST_COVERAGE_DOCUMENTATION.md`.
 
 ---
 
-## Output Files
+## Output Files  
 
-### AST Text Format (.outast)
+### `.outast` – Textual AST  
 
-Plain text hierarchical representation of the AST:
-```
+```text
 Program
-├─ClassDecl: MyClass
-│ ├─VarDecl: x (type: integer)
-│ └─FunctionDecl: myMethod
-│   └─ParamList
+├─ClassDecl: Point
+│ ├─VarDecl: x (integer)
+│ └─MemberFuncDecl: compute
 └─FunctionDef: main
-  └─StatementList
-    └─AssignmentStatement
+  └─Block
+    └─AssignStmt
 ```
 
-### DOT Format (.dot)
+### `.dot` – GraphViz  
 
-GraphViz-compatible graph description:
 ```dot
 digraph AST {
-    node1 [label="Program"];
-    node2 [label="ClassDecl: MyClass"];
-    node1 -> node2;
-    ...
+    node0 [label="Program"];
+    node1 [label="ClassDecl: Point"];
+    node0 -> node1;
 }
 ```
 
-**Visualizing DOT files:**
+**Visualize:**  
 ```bash
-# Using Graphviz (if installed)
 dot -Tpng example.dot -o example.png
-
-# Online viewers
-# - https://dreampuf.github.io/GraphvizOnline/
-# - http://www.webgraphviz.com/
 ```
 
-### Token Stream (.outtokens)
-
-```
-1:1 class "class" [class]
-1:7 id "Point" [id]
-1:13 lbrace "{" [lcurbr]
-...
-```
+**Online:** [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/)
 
 ---
 
-## Troubleshooting
+## Troubleshooting  
 
-### Compilation Errors
+| Issue | Solution |
+|------|----------|
+| `parsing_table.csv` not found | Verify path: `ls grammar/parsing_table.csv` |
+| No `parser` executable | Check compilation log for errors |
+| No output files | Check `.outsyntaxerrors` for syntax issues |
+| `[FAIL]` status | Source violates grammar — fix syntax |
+| Segmentation fault | Invalid input or grammar edge case |
 
-**Error: "No such file or directory"**
+### GitHub Codespaces Tips  
 ```bash
-# Make sure you're in the Abstract-Syntax-Tree-Generation directory
-pwd  # Should show: .../Abstract-Syntax-Tree-Generation
-
-# Check that all source files exist
-ls -la *.cpp *.hpp include/
-```
-
-**Error: "C++17 required"**
-```bash
-# Use a newer compiler or specify -std=c++17
-g++ -std=c++17 ...
-```
-
-### Runtime Errors
-
-**Error: "Cannot open parsing table"**
-```bash
-# Check that parsing_table.csv exists
-ls grammar/parsing_table.csv
-
-# Use correct path
-./parser grammar/parsing_table.csv test.src
-```
-
-**Error: "Cannot write outputs"**
-```bash
-# Check write permissions
-chmod +w .
-
-# Ensure sufficient disk space
-df -h .
-```
-
-### Execution Issues in GitHub Codespaces
-
-```bash
-# If permissions issue
 chmod +x parser
-
-# If path issues
 export PATH=$PATH:$(pwd)
-
-# If library issues
 ldd parser  # Check dependencies
 ```
 
-### Parser Output Shows [FAIL]
-
-This indicates syntax errors in the source file. Check:
-```bash
-# View syntax error log
-cat filename.outsyntaxerrors
-
-# Common issues:
-# - Missing semicolons
-# - Unmatched braces
-# - Invalid token sequences
-```
-
 ---
 
-## Verifying Successful Compilation and Execution
-
-### Quick Test
+## Verification Checklist  
 
 ```bash
-# 1. Compile
 make clean && make
-
-# 2. Run comprehensive test
 ./parser grammar/parsing_table.csv test-checklist-comprehensive.src
-
-# 3. Check for success
-echo $?  # Should output 0
-ls test-checklist-comprehensive.outast  # Should exist
-
-# 4. View AST
-head -20 test-checklist-comprehensive.outast
+echo $?                    # → 0 (success)
+ls *.outast *.dot          # → files exist
+head -20 *.outast          # → semantic nodes only
+grep -c "BinaryExpr" *.outast  # → ≥20
 ```
 
-### Expected Success Indicators
-
-✅ Compilation completes without errors  
-✅ `parser` executable is created  
-✅ Running parser shows `[OK]` status  
-✅ Output files (.outast, .dot) are generated  
-✅ AST output contains semantic nodes (not grammar symbols)  
-✅ No crashes or segmentation faults
+**Success Indicators:**  
+- No compilation errors  
+- `parser` created  
+- `[OK]` on all tests  
+- `.outast` contains **no grammar symbols**  
+- `.dot` renders valid graph  
 
 ---
 
-## Additional Documentation
+## Supporting Documentation  
 
-For detailed information about the implementation, refer to:
-
-- **ATTRIBUTE_GRAMMAR_SPECIFICATION.md** - Complete attribute grammar with semantic actions
-- **DESIGN_RATIONALE.md** - System architecture and design decisions
-- **CHECKLIST_VERIFICATION.md** - Evidence for all 43 requirements
-- **TEST_COVERAGE_DOCUMENTATION.md** - Comprehensive test coverage proof
-- **AST_VS_PARSETREE.md** - Proof that output is AST, not parse tree
+| File | Purpose |
+|------|--------|
+| `ATTRIBUTE_GRAMMAR_SPECIFICATION.md` | 50+ semantic actions |
+| `DESIGN_RATIONALE.md` | Architecture & heuristics |
+| `CHECKLIST_VERIFICATION.md` | All 43 requirements met |
+| `TEST_COVERAGE_DOCUMENTATION.md` | Full test proof |
+| `AST_VS_PARSETREE.md` | AST vs parse tree evidence |
 
 ---
 
-**Last Updated:** November 8, 2025
+**Last Updated:** 8 November 2025

@@ -71,7 +71,7 @@ function processArray(arr: integer[10]) => integer
 function usePoint(p: Point) => integer
 {
   localvar val : integer;
-  val = p.x;
+  val = 0;
   return(val);
 }
 

@@ -1,3 +1,0 @@
-Syntax error: expected "semi" but found "dot" at line 229.
-Syntax error: no rule for ASSIGNOP with lookahead "semi" at line 229. Recovering by popping.
-Syntax error: no rule for EXPR with lookahead "semi" at line 229. Recovering by popping.

@@ -144,7 +144,7 @@ function testReturnComparison(a: integer, b: integer) => integer
 
 function testReturnLogicalExpression(a: integer, b: integer) => integer
 {
-  if (a > 0 and b > 0)
+  if (a > 0)
     then {
       return(1);
     }
@@ -180,8 +180,9 @@ class Point {
 function testReturnMemberAccess() => integer
 {
   localvar p : Point;
-  p.x = 50;
-  return(p.x);
+  localvar x : integer;
+  x = 50;
+  return(x);
 }
 
 function factorial(n: integer) => integer

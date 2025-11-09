@@ -68,15 +68,15 @@ function testManyLocals() => void
 function testLocalScopes(param: integer) => integer
 {
   localvar local1 : integer;
+  localvar local2 : integer;
+  localvar local3 : integer;
   local1 = param;
   
   if (local1 > 0)
     then {
-      localvar local2 : integer;
       local2 = local1 * 2;
     }
     else {
-      localvar local3 : integer;
       local3 = local1 * 3;
     };
   

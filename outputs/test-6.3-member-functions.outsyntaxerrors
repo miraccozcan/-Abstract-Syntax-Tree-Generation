@@ -1,7 +1,0 @@
-Syntax error: expected "semi" but found "lsqbr" at line 23.
-Syntax error: no rule for REPTCLASSDECL4 with lookahead "intlit" at line 23. Recovering by popping.
-Syntax error: expected "rcurbr" but found "intlit" at line 23.
-Syntax error: expected "semi" but found "rsqbr" at line 23.
-Syntax error: no rule for REPTSTART0 with lookahead "semi" at line 23. Recovering by popping.
-Extra tokens at end near line 23.
-Syntax error: unparsed input remains near line 23.

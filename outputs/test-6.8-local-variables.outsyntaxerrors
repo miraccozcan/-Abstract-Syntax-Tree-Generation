@@ -1,8 +1,0 @@
-Syntax error: expected "rcurbr" but found "localvar" at line 75.
-Syntax error: expected "else" but found "id" at line 75.
-Syntax error: no rule for STATBLOCK with lookahead "colon" at line 75. Recovering by popping.
-Syntax error: expected "semi" but found "colon" at line 75.
-Syntax error: expected "rcurbr" but found "integer" at line 75.
-Syntax error: no rule for REPTSTART0 with lookahead "semi" at line 75. Recovering by popping.
-Extra tokens at end near line 75.
-Syntax error: unparsed input remains near line 75.

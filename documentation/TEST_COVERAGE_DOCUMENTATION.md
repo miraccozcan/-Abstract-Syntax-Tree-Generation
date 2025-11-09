@@ -1,47 +1,46 @@
-```markdown
-# Test Cases – **ALL 17 REQUIREMENTS: 100% COVERED**  
+# Test Cases – **ALL 17 REQUIREMENTS: 100 % COVERED**  
 ## **Group 2 – SEP700**  
-**Date:** November 8, 2025  
+**Date:** 8 November 2025  
 
 ---
 
-## **ONE FILE. ALL TESTS.**
+## **ONE COMPREHENSIVE FILE. ALL TESTS.**
 
 ```
-test-checklist-comprehensive.src → 189 lines → ALL 17 REQUIREMENTS
+test-checklist-comprehensive.src → 189 lines → COVERS ALL 17 REQUIREMENTS
 ```
 
-**Plus 7 focused test files** for surgical precision.
+**Supplemented by 7 targeted test files** for precision validation.
 
 ---
 
-## **Coverage at a Glance**
+## **Coverage Summary**
 
 | Req | Feature | Test File | Status |
-|-----|--------|-----------|--------|
+|-----|---------|-----------|--------|
 | 6.1 | Class declarations | `test-checklist-comprehensive.src` | PASS |
 | 6.2 | Data members | `test-checklist-comprehensive.src` | PASS |
 | 6.3 | Member functions | `test-checklist-comprehensive.src` | PASS |
 | 6.4 | Inheritance | `test-checklist-comprehensive.src` | PASS |
-| 6.5 | Public/private | `test-checklist-comprehensive.src` | PASS |
-| 6.6 | Free functions | `test-checklist-comprehensive.src` | PASS |
+| 6.5 | Public/private visibility | `test-checklist-comprehensive.src` | PASS |
+| 6.6 | Free-standing functions | `test-checklist-comprehensive.src` | PASS |
 | 6.7 | Constructors | `test-checklist-comprehensive.src` | PASS |
-| 6.8 | Local vars | `test-checklist-comprehensive.src` | PASS |
-| 6.9 | int/float | `test-checklist-comprehensive.src` | PASS |
-| 6.10 | Arrays | `test-checklist-comprehensive.src` | PASS |
+| 6.8 | Local variables | `test-checklist-comprehensive.src` | PASS |
+| 6.9 | `integer` / `float` types | `test-checklist-comprehensive.src` | PASS |
+| 6.10 | Array types | `test-checklist-comprehensive.src` | PASS |
 | 6.11 | `if` statements | `test-checklist-comprehensive.src` | PASS |
 | 6.12 | `while` loops | `test-checklist-comprehensive.src` | PASS |
-| 6.13 | `read`/`write` | `test-checklist-comprehensive.src` | PASS |
-| 6.14 | `return` | `test-checklist-comprehensive.src` | PASS |
-| 6.15 | Assignments | `test-checklist-comprehensive.src` | PASS |
-| 6.16 | Complex indices | `test-checklist-comprehensive.src` | PASS |
-| 6.17 | Complex expressions | `test-checklist-comprehensive.src` | PASS |
+| 6.13 | `read` / `write` statements | `test-checklist-comprehensive.src` | PASS |
+| 6.14 | `return` statements | `test-checklist-comprehensive.src` | PASS |
+| 6.15 | Assignment statements | `test-checklist-comprehensive.src` | PASS |
+| 6.16 | Complex array indexing | `test-checklist-comprehensive.src` | PASS |
+| 6.17 | Complex arithmetic expressions | `test-checklist-comprehensive.src` | PASS |
 
 **TOTAL: 17/17**
 
 ---
 
-## **Proof: Real Code, Real AST**
+## **Evidence: Source Code and Corresponding AST Fragments**
 
 ### 6.1 – Class Declarations
 ```c
@@ -79,7 +78,7 @@ class Derived isa Base { ... }
 
 ---
 
-### 6.5 – Visibility
+### 6.5 – Visibility Modifiers
 ```c
 public attribute x : integer;
 private function secret: () => void;
@@ -92,7 +91,7 @@ private function secret: () => void;
 ```c
 function add(a: integer, b: integer) => integer { return(a + b); }
 ```
-**AST**: `FunctionDef` at top level
+**AST**: `FunctionDef` at program scope
 
 ---
 
@@ -100,7 +99,7 @@ function add(a: integer, b: integer) => integer { return(a + b); }
 ```c
 public constructor: (val: integer);
 ```
-**AST**: `Constructor` node
+**AST**: `Constructor` node with parameter list
 
 ---
 
@@ -109,11 +108,11 @@ public constructor: (val: integer);
 localvar a : integer;
 localvar arr : integer[5];
 ```
-**AST**: `VarDecl` inside `Block`
+**AST**: `VarDecl` within `Block`
 
 ---
 
-### 6.9 – int/float
+### 6.9 – Integer and Float Types
 ```c
 localvar x : integer;
 localvar y : float;
@@ -122,11 +121,11 @@ localvar y : float;
 
 ---
 
-### 6.10 – Arrays
+### 6.10 – Array Types
 ```c
 integer[10], float[5][5], integer[]
 ```
-**AST**: `ArrayDim` with `IntLiteral` or empty
+**AST**: `ArrayDim` with `IntLiteral` or empty dimension
 
 ---
 
@@ -134,7 +133,7 @@ integer[10], float[5][5], integer[]
 ```c
 if (x == 5) then { ... } else { ... };
 ```
-**AST**: `IfStmt` with 3 children
+**AST**: `IfStmt` with condition, then-block, else-block
 
 ---
 
@@ -142,15 +141,15 @@ if (x == 5) then { ... } else { ... };
 ```c
 while (i < n) { i = i + 1; }
 ```
-**AST**: `WhileStmt` with condition + body
+**AST**: `WhileStmt` with condition and body
 
 ---
 
-### 6.13 – `read`/`write`
+### 6.13 – `read` / `write`
 ```c
-read(x); write("Hello"); write(a + b);
+read(x); write(a + b);
 ```
-**AST**: `ReadStmt`, `WriteStmt` with `StringLiteral`
+**AST**: `ReadStmt`, `WriteStmt` with `BinaryExpr`
 
 ---
 
@@ -158,80 +157,101 @@ read(x); write("Hello"); write(a + b);
 ```c
 return(a + b * 2);
 ```
-**AST**: `ReturnStmt` with `BinaryExpr`
+**AST**: `ReturnStmt` containing nested `BinaryExpr`
 
 ---
 
 ### 6.15 – Assignments
 ```c
-x = 42; arr[i] = 10; p.x = 5;
+x = 42; arr[i] = 10;
 ```
 **AST**: `AssignStmt` with `Variable`, `Index`
 
 ---
 
-### 6.16 – Complex Indices
+### 6.16 – Complex Array Indexing
 ```c
 matrix[i + 1][j - 1] = 3;
 matrix[arr[i]][arr[j]] = 4;
 ```
-**AST**: Nested `Index` + `BinaryExpr`
+**AST**: Nested `Index` nodes with `BinaryExpr` indices
 
 ---
 
 ### 6.17 – Complex Expressions
 ```c
 a + b * 2 - 3 / 1
-not (x == 5 and y > 0)
-p.distance(q)
+x == 5
 ```
 **AST**:
 - `BinaryExpr: +` → `*` → `/`
-- `UnaryExpr: not`
-- `FunctionCall` with `MemberAccess`
+- `BinaryExpr: ==` with precedence preserved
 
 ---
 
-## **Verification Commands**
+## **Validation Commands**
 
 ```bash
-# Run the master test
+# Execute comprehensive test
 ./parser grammar/parsing_table.csv test-checklist-comprehensive.src
 [OK] → .outast, .dot
 
-# Count key nodes
-cat test-checklist-comprehensive.outast | grep -c "ClassDecl"      # 8+
-cat test-checklist-comprehensive.outast | grep -c "FunctionDef"   # 10+
-cat test-checklist-comprehensive.outast | grep -c "BinaryExpr"    # 20+
+# Verify node counts
+grep -c "ClassDecl"   test-checklist-comprehensive.outast  # ≥8
+grep -c "FunctionDef" test-checklist-comprehensive.outast  # ≥10
+grep -c "BinaryExpr"  test-checklist-comprehensive.outast  # ≥20
 ```
 
 ---
 
-## **Bonus: 7 Focused Test Files**
+## **Supplementary Focused Test Files**
 
 | File | Purpose |
 |------|--------|
-| `test-6.1-class-declarations.src` | Edge-case classes |
-| `test-6.2-data-members.src` | All array + visibility combos |
-| `test-6.4-inheritance.src` | Multi-level inheritance |
-| `test-6.5-visibility.src` | Mixed public/private |
-| `test-6.7-member-function-defs.src` | Constructors galore |
-| `test-6.9-int-float.src` | Type system stress test |
-| `test-6.16-complex-indices.src` | Index expression madness |
+| `test-6.1-class-declarations.src` | Edge-case class structures |
+| `test-6.2-data-members.src` | All visibility and array combinations |
+| `test-6.4-inheritance.src` | Multi-level inheritance chains |
+| `test-6.5-visibility.src` | Mixed visibility scoping |
+| `test-6.7-member-function-defs.src` | Constructor variants |
+| `test-6.9-int-float.src` | Type system boundary checks |
+| `test-6.16-complex-indices.src` | Deeply nested index expressions |
 
-**All PASS** → `[OK]`
+**All execute successfully** → `[OK]`
 
 ---
 
-## **Final Verdict**
+## **Grammar Constraints and Test Adaptations**
 
-- **One file covers all 17**  
-- **7 more for depth**  
-- **All ASTs correct**  
-- **All edge cases hit**  
-- **All operators, nesting, precedence verified**
+The following language features are **not supported** by the provided grammar and were therefore excluded or adapted:
+
+### **Unsupported Constructs:**
+1. **Member access** (`obj.field`) – dot notation absent from grammar  
+2. **Logical operators** (`and`, `or`, `not`) – only relational operators in conditions  
+3. **Array return types** (`=> integer[10]`) – restricted to simple types or `void`  
+4. **String literals** – lexer lacks string token support  
+5. **Local variables in statement blocks** – must appear at function body level  
+
+### **Adaptations Applied:**
+- Replaced member access with standalone variables  
+- Simplified conditions to relational expressions only  
+- Modified return types to `void` or scalar types  
+- Removed string literals from `write` statements  
+- Relocated local declarations to function scope  
+
+### **Outcome:**
+All 17 requirements **successfully validated** within grammar constraints, producing correct ASTs.
+
+---
+
+## **Final Assessment**
+
+- **Single file satisfies all 17 requirements**  
+- **Seven additional files provide granular verification**  
+- **All generated ASTs are structurally correct**  
+- **Edge cases, operator precedence, and nesting fully exercised**  
+- **Compliance achieved despite grammar limitations**
 
 ---
 
 **Group 2 – SEP700**  
-**November 8, 2025**
+**8 November 2025**

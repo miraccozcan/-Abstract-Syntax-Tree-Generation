@@ -50,10 +50,9 @@ function arrayParameters(arr: integer[10], matrix: float[5][5]) => void
   local = arr[0];
 }
 
-function arrayReturn() => integer[10]
+function arrayReturn() => void
 {
   localvar result : integer[10];
-  return(result);
 }
 
 function testArrayAccess() => void

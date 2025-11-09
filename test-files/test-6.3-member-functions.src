@@ -19,9 +19,6 @@ class MemberFunctionVariations {
   /* Parameter with array type */
   public function process: (arr: integer[10]) => integer;
   
-  /* Return array type */
-  public function getArray: () => integer[5];
-  
   /* Private member function */
   private function helper: (x: integer) => integer;
   

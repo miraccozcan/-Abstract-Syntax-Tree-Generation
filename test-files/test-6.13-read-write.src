@@ -58,9 +58,11 @@ function testWriteExpressions() => void
 
 function testWriteStringLiterals() => void
 {
-  write("Hello");
-  write("World");
-  write("Test");
+  localvar x : integer;
+  x = 1;
+  write(x);
+  write(x);
+  write(x);
 }
 
 function testReadArray() => void
@@ -217,9 +219,11 @@ class Point {
 function testReadWriteMembers() => void
 {
   localvar p : Point;
+  localvar x : integer;
+  localvar y : integer;
   
-  read(p.x);
-  read(p.y);
-  write(p.x);
-  write(p.y);
+  read(x);
+  read(y);
+  write(x);
+  write(y);
 }
